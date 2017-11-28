@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Start Menu</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body id="body">
+        <img src="FO3_loading_screen1.jpg" class="hidden">
+        <img src="FO3_loading_screen2.jpg" class="hidden">
+        <img src="FO3_loading_screen3.jpg" class="hidden">
+        <img src="FO3_loading_screen4.jpg" class="hidden">
+        <img src="FO3_loading_screen5.jpg" class="hidden">
+        <audio src="Fallout 3 theme.mp3" preload="auto" autoplay loop></audio>
+        <h1 id="startMenuGameTitle">FALLOUT 3</h1>
+        <div id="startMenuOptionsMenuContainer">
+            <ul id="startMenuOptionsMenu">
+                <li id="startGameButtom" class="startMenuOptionsMenuOptions">New Game</li>
+                <li id="loadGameButton" class="startMenuOptionsMenuOptions">Load Game</li>
+                <li id="quitGameButton" class="startMenuOptionsMenuOptions">Quit</li>
+            </ul>
+        </div>
+        <div id="closeFuckOffThen" class="hidden"><div id="fuckOffThen" class="hidden">FUCK OFF THEN</div></div>
+        
+        <script>
+            var imageUrl = ["url(FO3_loading_screen1.jpg)", "url(FO3_loading_screen2.jpg)", "url(FO3_loading_screen3.jpg)", "url(FO3_loading_screen4.jpg)", "url(FO3_loading_screen5.jpg)"];
+            var imageCount = "1";
+            var backgroundImage = window.setInterval(function() {
+                document.getElementById("body").style.backgroundImage=imageUrl[imageCount];
+                imageCount++;
+                if (imageCount > 4) {
+                  imageCount = 0;
+                }
+            }, 5000);
+            document.getElementById("quitGameButton").onclick = function(){
+                document.getElementById("fuckOffThen").classList.remove("hidden");
+                document.getElementById("closeFuckOffThen").classList.remove("hidden");
+            };
+            document.getElementById("closeFuckOffThen").onclick = function() {
+                document.getElementById("fuckOffThen").className += "hidden";
+                document.getElementById("closeFuckOffThen").className += "hidden";
+            };
+        </script>
+    </body>
+</html>

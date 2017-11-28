@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TEST</title>
+<style>
+    #main {
+        padding: 50px;
+        width: 430px;
+        box-sizing: border-box;
+        position: relative;
+        border-bottom: 3px solid #34c470;
+        border-top: 3px solid #34c470;
+        background: rgba(62, 88, 40, 0.65);
+        text-align: center;
+        font-family: sans-serif;
+        font-weight: 900;
+        font-size: 40px;
+        color: #146437;
+    }
+
+    #topLeft {
+        /*border-left: 3px solid #32501c;*/
+        position: absolute;
+        height: 25px;
+        top: 0;
+        left: 0;
+        width: 3px;
+        background: linear-gradient(to bottom, rgba(52,196,112,1) 0%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    #topRight {
+        /*border-left: 2px solid #32501c;*/
+        position: absolute;
+        height: 25px;
+        top: 0;
+        right: 0;
+        width: 3px;
+        background: linear-gradient(to bottom, rgba(52,196,112,1) 0%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    #bottomLeft {
+        /*border-left: 2px solid #32501c;*/
+        position: absolute;
+        height: 25px;
+        bottom: 0;
+        left: 0;
+        width: 3px;
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(52,196,112,1) 100%);
+    }
+
+    #bottomRight {
+        /*border-left: 2px solid #32501c;*/
+        position: absolute;
+        height: 25px;
+        bottom: 0;
+        right: 0;
+        width: 3px;
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(52,196,112,1) 100%);
+    }
+
+    #main2 {
+        border-width: 3px;
+        border-style: solid;
+        border-image: linear-gradient(to bottom, rgba(52,196,112,1) 0%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 75%, rgba(52,196,112,1) 100%);
+        border-image-slice: 2%;
+        box-sizing: border-box;
+        padding: 50px;
+        width: 430px;
+        display: inline-block;
+        text-align: center;
+        margin-top: 50px;
+        font-family: sans-serif;
+        font-weight: 900;
+        font-size: 40px;
+        color: #146437;
+        background: rgba(62, 88, 40, 0.65);
+    }
+    #main3 {
+        box-sizing: border-box;
+        padding: 7px 12px 12px 12px;
+        width: 430px;
+        display: block;
+        margin-top: 50px;
+        font-family: sans-serif;
+        font-size: 40px;
+        color: #146437;
+        /* background: rgba(62, 88, 40, 0.65); */
+        position: relative;
+    }
+    div#main3:before {
+        content: "";
+        height: 3px;
+        width: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        background: linear-gradient(to right, rgba(52,196,112,1) 20%, rgba(255, 255, 255, 0) 100%);
+    }
+    div#main3:after {
+        content: "";
+        height: 100%;
+        width: 3px;
+        left: 0;
+        top: 0px;
+        position: absolute;
+        background: linear-gradient(to bottom, rgba(52,196,112,1) 50%, rgba(255, 255, 255, 0) 100%);
+    }
+    
+</style>
+</head>
+<body>
+
+<div id="main">
+  <div id="topLeft"></div>
+
+  <div id="topRight"></div>
+
+  <div id="bottomLeft"></div>
+
+  <div id="bottomRight"></div>
+
+  HELLO WORLD
+</div>
+
+<div id="main2">
+  HELLO WORLD
+</div>
+    
+<div id="main3">HELLO WORLD</div>
+
+</body>
+</html>

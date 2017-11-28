@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <img id="justBornScreenShot" src="./justBornScreenShot.png" alt="xxxxx">
+        <div id="infoBoxTopLeft">You are born. Choose your gender and name.</div>
+        <div id="chooseGenderContainer">
+            <button class="genderChoices" id="genderChoiceMale">Boy</button>
+            <button class="genderChoices" id="genderChoiceFemale">Girl</button>
+            <button class="genderChoices" id="genderChoiceApache">Apache<br>Helicopter</button>
+        </div>
+        
+        <form action="" id="chooseNameContainer">
+            <p>Choose a name:</p>
+            <input id="nameInput" type="text" placeholder="Name">
+<!--            <button id="submitChosenName">OK</button>-->
+            <input type="submit" id="submitChosenName" value="OK">
+        </form>
+            
+        <script>
+            var gender;
+            var name;
+            genderChoiceMale.onclick = function() {
+                gender = "Male";
+                chooseGenderContainer.style.display = "none";
+                chooseNameContainer.style.display = "flex";
+            }
+            genderChoiceFemale.onclick = function() {
+                gender = "Female";
+                chooseGenderContainer.style.display = "none";
+                chooseNameContainer.style.display = "flex";
+            }
+            genderChoiceApache.onclick = function() {
+                gender = "Apache Helicopter";
+                chooseGenderContainer.style.display = "none";
+                chooseNameContainer.style.display = "flex";
+            }
+            submitChosenName.onclick = function() {
+                name = nameInput.value;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Inventory</title>
+        <link rel="stylesheet" href="./list invenory.css">
+    </head>
+    <body>
+        <button id="inventory">Inventory</button>
+        <div id="inventoryContainer"></div>
+        <img title="Volvo" id="volvoPickUpItem" class="pickUpItems" src="Volvo.png" alt="Volvo">   
+        <img title="BMW" id="bmwPickUpItem" class="pickUpItems" src="BMW.png" alt="BMW">
+        <img title="Tesla" id="teslaPickUpItem" class="pickUpItems" src="Tesla.png" alt="Tesla">
+        <img title="Audi" id="audiPickUpItem" class="pickUpItems" src="Audi.png" alt="Audi">
+        <script>
+            var cars = [];
+            var pickUpItems = document.getElementsByClassName("pickUpItems");
+            inventory.onclick = function(){
+                if (inventoryContainer.style.opacity === "1") {
+                    inventoryContainer.style.opacity="0";
+                    inventoryContainer.style.zIndex="-9";
+                    inventoryContainer.innerHTML = "";
+                } else {
+                    inventoryContainer.style.opacity="1";
+                    inventoryContainer.style.zIndex="999";
+                    for (var i = 0; i < cars.length; i++) {
+                        var itemName = cars[i];
+                        var div = document.createElement("div");
+                        div.setAttribute("class", "itemsContainers");
+                        var img = document.createElement("img");
+                        img.src = itemName + ".png";
+                        var p = document.createElement("p");
+                        p.setAttribute("class", "p");
+                        p.innerHTML = itemName;
+                        div.appendChild(img);
+                        div.appendChild(p);
+                        inventoryContainer.appendChild(div);
+                    };
+                };
+            };
+            audiPickUpItem.onclick = function() {
+                var itemName = audiPickUpItem.title;
+                cars.push(itemName);
+                audiPickUpItem.setAttribute("class", "hidden");
+                inventoryContainer.style.opacity="0";
+                inventoryContainer.style.zIndex="-9";
+                inventoryContainer.innerHTML = "";
+            };
+            volvoPickUpItem.onclick = function() {
+                var itemName = volvoPickUpItem.title;
+                cars.push(itemName);
+                volvoPickUpItem.setAttribute("class", "hidden");
+                inventoryContainer.style.opacity="0";
+                inventoryContainer.style.zIndex="-9";
+                inventoryContainer.innerHTML = "";
+            };
+            bmwPickUpItem.onclick = function() {
+                var itemName = bmwPickUpItem.title;
+                cars.push(itemName);
+                bmwPickUpItem.setAttribute("class", "hidden");
+                inventoryContainer.style.opacity="0";
+                inventoryContainer.style.zIndex="-9";
+                inventoryContainer.innerHTML = "";
+            };
+            teslaPickUpItem.onclick = function() {
+                var itemName = teslaPickUpItem.title;
+                cars.push(itemName);
+                teslaPickUpItem.setAttribute("class", "hidden");
+                inventoryContainer.style.opacity="0";
+                inventoryContainer.style.zIndex="-9";
+                inventoryContainer.innerHTML = "";
+            };
+//
+//            for (var i = 0; i < cars.length; i++) {
+//                var li = document.createElement("li");
+//                var t = document.createTextNode(cars[i]);
+//                li.appendChild(t);
+//                document.getElementById("ul").appendChild(li);
+//            }
+//            object.className += " otherclass";
+//            object.classList.remove("otherclass");
+        </script>
+    </body>
+</html>

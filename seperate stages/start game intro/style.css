@@ -1,0 +1,118 @@
+@font-face {
+    font-family: monofont;
+    src: url(monofont.ttf);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: monofont;
+    color: white;
+}
+
+body {
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    transition: 0.8s linear;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hiddenOpacity {
+    opacity: 0;
+}
+
+#bethesdaGameStudiosTitle {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    font-size: 320%;
+    opacity: 0;
+    transition: 0.8s linear;
+}
+
+#bethesdaGameStudiosTitleSpan{
+    
+}
+
+#bethesdaGameStudiosTitleSpanElias{
+    position: absolute;
+    left: -5%;
+    top: -43%;
+    color: #2a8c2a;
+    font-style: italic;
+    font-size: 184%;
+    text-shadow: 0px -4px 0px black, 4px 0 black, 0px 4px 0 black, -4px 0px 0 black, 4px -4px 0 black, 4px 4px 0 black, -4px 4px 0 black, -4px -4px 0 black;
+    letter-spacing: 2px;
+    opacity: 0;
+    transition: none;
+}
+
+#fallout3AdventureGameContainer {
+    position: absolute;
+    left: 68%;
+    top: 72%;
+    opacity: 0;
+    transition: 0.8s linear;
+}
+
+#fallout3TitleStartGameIntro {
+    
+font-size: 580%;
+}
+
+#fallout3AdventureGameTitleStartGameIntro {
+    position: absolute;
+    top: 76%;
+    left: 1%;
+    opacity: 0;
+    transition: 0.8s linear;
+}
+
+#bosSoldierInFrontOfTheWasteland {
+    width: 100vw;
+    opacity: 0;
+    transition: 0.8s linear;
+    /* filter: blur(5px); */
+}
+
+#warWarNeverChanges {
+    position: absolute;
+    align-self: center;
+    font-size: 250%;
+    opacity: 0;
+    transition: 0.8s linear;
+}
+
+#vaultTecLogoContainer {
+    position: absolute;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.8s linear;
+}
+
+#vaultTecLogoStartGameIntro {
+    width: 400px;
+    opacity: 0;
+    transition: inherit;
+}
+
+#vaultTecLogoTitle {
+    font-size: 330%;
+    opacity: 0;
+    transition: inherit;
+}
+
+#vaultTecLogoSlogan {
+    font-size: 160%;
+    opacity: 0;
+    transition: inherit;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>add html element</title>
+</head>
+<body>
+<style>
+.democlass {
+	background-color: red;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid;
+}
+</style>
+<p>Click the button to make a BUTTON element with text.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+    var btn = document.createElement("button");
+    btn.setAttribute("class", "democlass");
+    var t = document.createTextNode("CLICK ME");
+    btn.appendChild(t);
+    document.body.appendChild(btn);
+}
+</script>
+
+</body>
+</html>

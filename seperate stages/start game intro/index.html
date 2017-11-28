@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <img id="bosSoldierInFrontOfTheWasteland" src="BoS_soldier_in_front_of_the_wasteland.jpg" aplt="xxxxx">
+        <h1 id="bethesdaGameStudiosTitle"><span id="bethesdaGameStudiosTitleSpan">Bethesda<span id="bethesdaGameStudiosTitleSpanElias">Elias</span></span> Game Studios Presents</h1>
+        <div id="fallout3AdventureGameContainer">
+            <h1 id="fallout3TitleStartGameIntro">Fallout 3</h1>
+            <h1 id="fallout3AdventureGameTitleStartGameIntro">Adventure game</h1>
+        </div>
+        <h1 id="warWarNeverChanges">War.War Never Changes.</h1>
+        <div id="vaultTecLogoContainer">
+            <img id="vaultTecLogoStartGameIntro" src="./Vault_tec_logo.png" alt="xxxxx">
+            <h1 id="vaultTecLogoTitle">Vault-Tec</h1>
+            <h3 id="vaultTecLogoSlogan">Prepare for the future.</h3>
+        </div>
+        <script>
+            setTimeout(function(){ bosSoldierInFrontOfTheWasteland.style.opacity = (1); }, 500);
+            setTimeout(function(){ bosSoldierInFrontOfTheWasteland.style.opacity = (0); a(); }, 3000);
+            
+            function a() {
+                setTimeout(function(){ bethesdaGameStudiosTitle.style.opacity = (1); b(); }, 2000);
+            }
+            function b() {
+                setTimeout(function(){ bethesdaGameStudiosTitleSpan.style.textDecoration = "line-through"; c(); }, 1500);
+            }
+            function c() {
+                setTimeout(function(){ bethesdaGameStudiosTitleSpanElias.style.opacity = (1); e(); }, 300);
+            }
+            function e() {
+                setTimeout(function(){ bethesdaGameStudiosTitleSpanElias.style.transition = "0.8s linear"; }, 1000);
+                setTimeout(function(){ fallout3AdventureGameContainer.style.opacity = (1); }, 1000);
+                setTimeout(function(){ fallout3AdventureGameTitleStartGameIntro.style.opacity = (1); f(); }, 2000);
+            }
+            function f() {
+                setTimeout(function(){
+                    fallout3AdventureGameContainer.style.opacity = (0);
+                    bethesdaGameStudiosTitle.style.opacity = (0);
+                    g();
+                }, 2000);
+            }
+            function g() {
+                setTimeout(function(){ warWarNeverChanges.style.opacity = (1); h(); }, 1500);
+            }
+            function h() {
+                setTimeout(function(){ warWarNeverChanges.style.opacity = (0); i(); }, 2000);
+            }
+            function i() {
+                setTimeout(function(){ vaultTecLogoStartGameIntro.style.opacity = (1); }, 1500);
+                setTimeout(function(){ vaultTecLogoTitle.style.opacity = (1); }, 2500);
+                setTimeout(function(){ vaultTecLogoSlogan.style.opacity = (1); j() }, 3500);
+            }
+            function j() {
+                setTimeout(function(){
+                    vaultTecLogoStartGameIntro.style.opacity = (0);
+                    vaultTecLogoTitle.style.opacity = (0);
+                    vaultTecLogoSlogan.style.opacity = (0);
+                }, 2000);
+            }
+            
+            //setTimeout(function(){  }, 2000);
+        </script>
+    </body>
+</html>

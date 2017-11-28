@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>pipBoy</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        justify-content: center;
+        height: -webkit-fill-available;
+      }
+      #container {
+        position: relative;
+        margin: auto;
+      }
+      #pipBoyBackground {
+        position: absolute;
+        top: 57px;
+        left: 466px;
+      }
+      #pipBoy {
+        position: absolute;
+      }
+      div#container:after {
+        content: url(pipBoyForPiece.png);
+        position: relative;
+        top: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <img id="pipBoyBackground" src="pipBoyBackground.png" alt="pipBoyBackground">
+      <img id="pipBoy" src="pipBoy.png" alt="pipBoy">
+    </div>
+  </body>
+</html>
