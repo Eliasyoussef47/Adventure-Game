@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="yourDadEscapedBody" class="levelBody">
+            <div class="afterXYears" id="afterNineYears">Nine Years Later</div>
+            <img id="pickUpItemYourDadEscapedBBGun" class="pickUpItem" title="BB Gun" src="BB Gun.png">
+            <img id="pickUpItemYourDadEscapedBaseBallBat" class="pickUpItem" title="Baseball bat"  src="Baseball bat.png">
+            <img id="objectPointingArrowYourDadEscapedToBBGun" class="pointerCursor objectPointingArrow" src="./objectPointingArrow.png">
+            <img id="objectPointingArrowYourDadEscapedToBaseBallBat" class="pointerCursor objectPointingArrow" src="./objectPointingArrow.png">
+            <img id="objectPointingArrowYourDadEscapedOutOfTheRoom" class="pointerCursor objectPointingArrow" src="./objectPointingArrow.png">
+        </div>
+        
+        <div id="escapeTheVaultBody" class="levelBody">
+            <img id="objectPointingArrowEscapeTheVaulToUnderTheOverseerOffice" class="pointerCursor objectPointingArrow" src="./objectPointingArrow.png">
+        </div>
+        
+        <div id="dialogueContainer"></div>
+        <button class="pointerCursor" id="dialogueReadButton">>></button>
+        <p id="talkerName">Amata</p>
+        <img id="objectPointingArrowGoBack" class="pointerCursor objectPointingArrow" src="./objectPointingArrow.png">
+        <img id="inventoryButton" class="pointerCursor" src="./inventoryIcon.png">
+        <div id="pipBoy">
+            <img id="pipBoyPhoto" src="pipBoy.png" alt="pipBoy">
+            <div id="inventoryContainer"></div>
+            <img id="pipBoyForPiece" src="./pipBoyForPiece.png">
+        </div>
+        
+        <script>
+var inventory = [];
+inventoryButton.onclick = function(){
+    if (inventoryContainer.style.opacity === "1") {
+        hideOpacityDisplay(pipBoy);
+        hideOpacity(inventoryContainer);
+        inventoryContainer.innerHTML = "";
+    } else {
+        showOpacityDisplay(pipBoy);
+        inventoryContainer.style.opacity="1";
+        for (var i = 0; i < inventory.length; i++) {
+            var itemName = inventory[i];
+            var div = document.createElement("div");
+            div.setAttribute("class", "itemsContainers");
+            var img = document.createElement("img");
+            img.src = itemName + ".png";
+            var p = document.createElement("p");
+            p.setAttribute("class", "p");
+            p.innerHTML = itemName;
+            div.appendChild(img);
+            div.appendChild(p);
+            inventoryContainer.appendChild(div);
+        };
+    };
+};
+var name = "Elias";
+var gender = "Male";
+var talkerText = [];
+var talkerTextCount = 0;
+var afterFinishedDialogue ;
+dialogueReadButton.onclick = function() {
+    talkerTextCount++;
+    if(talkerTextCount >= talkerText.length) {
+        hideOpacityDisplay(dialogueContainer);
+        hideOpacityDisplay(dialogueReadButton);
+        hideOpacityDisplay(talkerName);
+        afterFinishedDialogue();
+    } else {
+        dialogueContainer.innerHTML = talkerText[talkerTextCount];
+    };
+};
+function hideOpacity(element) {
+    element.style.opacity = "0";
+};
+function hideDisplay(element) {
+    element.style.display = "none";
+};
+function hideOpacityDisplay(element) {
+    element.style.opacity = "0";
+    setTimeout(function(){
+        element.style.display = "none";
+    }, 800);
+};
+function showOpacity(element) {
+    element.style.opacity = "1";
+};
+function showDisplay(element) {
+    element.style.display = "block";
+};
+function showOpacityDisplay(element) {
+    element.style.display = "block";
+    setTimeout(function(){
+        element.style.opacity = "1";
+    }, 80);
+};
+function addItemToInventory(element) {
+    element.style.display = "none";
+    var itemName = element.title;
+    inventory.push(itemName);
+};
+function changeBI(element, link) { //change background image
+    element.style.backgroundImage = link;
+};
+            
+            
+            
+            /*///---<<<begin new level (yourDadEscaped)--->>>///*/
+            
+            yourDadEscaped();
+            function yourDadEscaped() {
+                function finishedDialogueWithAmata() {
+                    changeBI(yourDadEscapedBody, "url(finishedDialogueWithAmata.png)");
+                    showOpacityDisplay(objectPointingArrowYourDadEscapedToBBGun);
+                    showOpacityDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
+                    hideOpacityDisplay(objectPointingArrowGoBack);
+                    hideOpacityDisplay(pickUpItemYourDadEscapedBBGun);
+                    hideOpacityDisplay(pickUpItemYourDadEscapedBaseBallBat);
+                    if (inventory.includes("BB Gun")) {
+                        hideDisplay(objectPointingArrowYourDadEscapedToBBGun);
+                    };
+                    if (inventory.includes("Baseball bat")) {
+                        hideDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
+                    };
+                    if (inventory.includes("BB Gun") && inventory.includes("Baseball bat")) {
+                        showOpacityDisplay(objectPointingArrowYourDadEscapedOutOfTheRoom);
+                    };
+                };
+                function lookingAtBBGun() {
+                    changeBI(yourDadEscapedBody, "url(lookingAtBBGun.png)");
+                    showOpacityDisplay(pickUpItemYourDadEscapedBBGun);
+                    showOpacityDisplay(objectPointingArrowGoBack);
+                    hideOpacityDisplay(objectPointingArrowYourDadEscapedToBBGun);
+                    hideOpacityDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
+                    pickUpItemYourDadEscapedBBGun.onclick = function() {addItemToInventory(this)};
+                    objectPointingArrowGoBack.onclick = function() {finishedDialogueWithAmata()};
+                    setTimeout(function(){
+                        showOpacityDisplay(objectPointingArrowGoBack);
+                        showOpacityDisplay(pickUpItemYourDadEscapedBBGun);
+                        //this is a bug fix for for when the user clicks too fast on the arrow that he skips the animation and because of that it doesn't show the elements
+                    }, 1000);
+                };
+                function lookingAtBaseBallBat() {
+                    changeBI(yourDadEscapedBody, "url(lookingAtBaseBallBat.png)");
+                    showOpacityDisplay(pickUpItemYourDadEscapedBaseBallBat);
+                    showOpacityDisplay(objectPointingArrowGoBack);
+                    hideOpacityDisplay(objectPointingArrowYourDadEscapedToBBGun);
+                    hideOpacityDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
+                    pickUpItemYourDadEscapedBaseBallBat.onclick = function() {addItemToInventory(this)};
+                    objectPointingArrowGoBack.onclick = function() {finishedDialogueWithAmata()};
+                    setTimeout(function(){ 
+                        showOpacityDisplay(objectPointingArrowGoBack);
+                        showOpacityDisplay(pickUpItemYourDadEscapedBaseBallBat);
+                        //this is a bug fix for for when the user clicks too fast on the arrow that he skips the animation and because of that it doesn't show the elements
+                    }, 1000);
+                };
+                //level start
+                setTimeout(function(){
+                    showOpacityDisplay(yourDadEscapedBody);
+                    showOpacity(afterNineYears);
+                }, 1000);
+                setTimeout(function(){
+                    hideOpacityDisplay(afterNineYears);
+                }, 3000);
+                setTimeout(function(){
+                    //dialogueWithAmata function
+                    changeBI(yourDadEscapedBody, "url(dialogueWithAmata.png)");
+                    talkerTextCount = 0;
+                    talkerText.push(
+                        "Wake up " + name, 
+                        "Your dad has escaped the vault", 
+                        "Quick you've got to escape too before the guards get you", 
+                        "Take whatever you need and go"
+                    );
+                    dialogueContainer.innerHTML = talkerText[talkerTextCount];
+                    showOpacityDisplay(dialogueContainer);
+                    showOpacityDisplay(talkerName);
+                    showOpacityDisplay(dialogueReadButton);
+                    showOpacity(inventoryButton);
+                    afterFinishedDialogue = finishedDialogueWithAmata;
+                }, 4000);
+                objectPointingArrowYourDadEscapedToBBGun.onclick = function() {lookingAtBBGun()};
+                objectPointingArrowYourDadEscapedToBaseBallBat.onclick = function() {lookingAtBaseBallBat()};
+                objectPointingArrowYourDadEscapedOutOfTheRoom.onclick = function() {
+                    hideOpacityDisplay(this);
+                    hideOpacity(inventoryButton);
+                    escapeTheVault();
+                };
+            };
+            function skipYourDadEscapedBody() {
+                    hideOpacityDisplay(dialogueContainer);
+                    hideOpacityDisplay(dialogueReadButton);
+                    hideOpacityDisplay(talkerName);
+                    inventory.push("BB Gun", "Baseball bat");
+                    changeBI(yourDadEscapedBody, "url(finishedDialogueWithAmata.png)");
+                    hideOpacityDisplay(objectPointingArrowGoBack);
+                    hideOpacityDisplay(pickUpItemYourDadEscapedBBGun);
+                    hideOpacityDisplay(pickUpItemYourDadEscapedBaseBallBat);
+                    if (inventory.includes("BB Gun")) {
+                        hideDisplay(objectPointingArrowYourDadEscapedToBBGun);
+                    };
+                    if (inventory.includes("Baseball bat")) {
+                        hideDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
+                    };
+                    if (inventory.includes("BB Gun") && inventory.includes("Baseball bat")) {
+                        showOpacityDisplay(objectPointingArrowYourDadEscapedOutOfTheRoom);
+                    };
+                };
+            
+            /*///---<<<begin new level (escapeTheVault)--->>>///*/
+            function escapeTheVault() {
+                //level start
+                hideOpacityDisplay(yourDadEscapedBody);
+                showOpacityDisplay(escapeTheVaultBody);
+                talkerTextCount = 0;
+                setTimeout(function(){
+                    changeBI(escapeTheVaultBody, "url(inOverseerOffice.png)");
+                    showOpacity(inventoryButton);
+                    showOpacityDisplay(objectPointingArrowEscapeTheVaulToUnderTheOverseerOffice);
+                    objectPointingArrowEscapeTheVaulToUnderTheOverseerOffice.onclick = function() {};
+                }, 1000);
+            };
+        </script>
+    </body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body id="babyStepsBody">
+        <div id="infoBoxTopLeft">
+            <div id="infoBoxTopLeftGeneral">You can click on specific objects to activate them</div>
+            <div id="infoBoxTopLeftDivider"></div>
+            <div id="infoBoxTopLeftSpecific">Click on the door of the playpen to get out of it</div>
+        </div>
+        <div class="selectionArea pointerCursor" id="playpenSelectArea"></div>
+        <img id="objectPointingArrow" class="objectPointingArrowToTheChest pointerCursor" src="./objectPointingArrow.png" alt="xxxxx">
+        <img id="vaultBoy" src="vaultBoy.PNG" class="pointerCursor"/>
+        <div id="afterOneYear"><p>One Year later</p></div>
+        <div id="youDontHaveTheItemContainer">
+            <p id="youDontHaveTheItemText">You don't have the required item.</p>
+            <button id="youDontHaveTheItemOkButton">OK</button>
+        </div>
+        <script>
+            var inventory = [];
+            setTimeout(function(){
+                afterOneYear.style.opacity = "1";
+            }, 1000);
+            setTimeout(function(){
+                afterOneYear.style.opacity = "0";
+            }, 3000);
+            setTimeout(function(){
+                infoBoxTopLeft.style.opacity = "1";
+                babyStepsBody.style.backgroundImage = "url(inPlaypen.bmp)";
+                afterOneYear.style.display = "none";
+            }, 4000);
+            
+            playpenSelectArea.onclick = function() {
+                inTheMiddleOfTheRoom();
+                infoBoxTopLeftGeneral.innerHTML = "Click on an arrow that's pointing at an object or and area to go to it";
+                infoBoxTopLeftSpecific.innerHTML = "Click on the arrow that's pointing at the chest";
+                objectPointingArrow.style.display = "block";
+                
+            }
+            objectPointingArrow.onclick = function() {
+                lookingAtTheChest();
+                infoBoxTopLeftGeneral.innerHTML = "You can click on specific objects to pick them up";
+                infoBoxTopLeftSpecific.innerHTML = "Click on the Vault Boy to pick it up";
+            }
+            
+            function inTheMiddleOfTheRoom() {
+                babyStepsBody.style.backgroundImage = "url(inTheMiddleOfTheRoom.bmp)";
+                playpenSelectArea.style.display = "none";
+                objectPointingArrow.style.display = "block";
+                objectPointingArrow.setAttribute("class", "objectPointingArrowToTheChest pointerCursor");
+                
+                setTimeout(function(){
+                    objectPointingArrow.style.opacity = "1";
+                }, 80);
+                infoBoxTopLeftDivider.classList.remove("hidden");
+            }
+            function lookingAtTheChest() {
+                babyStepsBody.style.backgroundImage = "url(lookingAtTheChest.bmp)";
+                playpenSelectArea.style.opacity = "0";
+                objectPointingArrow.setAttribute("class", "objectPointingArrowOutOfChest pointerCursor");
+                vaultBoy.style.display = "block";
+                
+                objectPointingArrow.onclick = function() {
+                    if (inventory.includes("Vault Boy")) {
+                        inTheMiddleOfTheRoom();
+                        infoBoxTopLeftGeneral.innerHTML = "Click on an arrow that's pointing at an object or and area to go to it";
+                        infoBoxTopLeftSpecific.innerHTML = "Click on the arrow to face your father";
+                        objectPointingArrow.setAttribute("class", "objectPointingArrowAtFather pointerCursor");
+                        objectPointingArrow.onclick = function() {
+                            babyStepsBody.style.backgroundImage = "url(lookingAtFather.bmp)";
+                            objectPointingArrow.setAttribute("class", "objectPointingArrowGoToFather pointerCursor");
+                            infoBoxTopLeftSpecific.innerHTML = "Click on the arrow to go to your father";
+                            objectPointingArrow.onclick = function() {
+                                this.style.opacity = "0";
+                                infoBoxTopLeft.style.opacity = "0";
+                                setTimeout(function() {
+                                    babyStepsBody.style.backgroundImage = "url(black.jpg)";
+                                }, 1000);
+                            };
+                        };
+                    } else {
+                        youDontHaveTheItemContainer.style.display = "block";
+                        youDontHaveTheItemOkButton.onclick = function() {
+                            youDontHaveTheItemContainer.style.display = "none";
+                        };
+                    };
+                };
+                
+                
+                infoBoxTopLeftDivider.classList.remove("hidden");
+                vaultBoy.onclick = function() {
+                    vaultBoy.setAttribute("class", "hidden");
+                    inventory.push("Vault Boy");
+                    infoBoxTopLeftGeneral.innerHTML = "Now you can click on the arrow to go back";
+                    infoBoxTopLeftSpecific.innerHTML = "";
+                    infoBoxTopLeftDivider.setAttribute("class", "hidden");
+                };
+                
+                setTimeout(function(){
+                    vaultBoy.style.opacity = "1";
+                }, 80);
+                setTimeout(function(){
+                    playpenSelectArea.style.display = "none";
+                }, 900);
+                
+            }
+            
+            
+//            setTimeout(function(){
+//                    object.style.display = "none";
+//                }, 900);
+        </script>
+    </body>
+</html>

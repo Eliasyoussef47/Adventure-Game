@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body id="happy10thBirthdayBody">
+        <div id="infoBoxTopLeft">
+            <div id="infoBoxTopLeftGeneral"></div>
+            <div id="infoBoxTopLeftDivider"></div>
+            <div id="infoBoxTopLeftSpecific">Take the Pip-Boy 3000 from the overseer</div>
+        </div>
+        <div id="afterNineYears">Nine Years Later</div>
+        <img id="pipBoy3000" src="./pipBoy3000.png" alt="PIPBOY">
+        <div id="dialogueContainer">happy birthday <span id="playerNameSpan">Elias</span>, you are ten years old and in vault 101 when you turn ten you get your very own Pip-Boy 3000.</div>
+        <p id="talkerName">Overseer</p>
+        <script>
+            var inventory = [];
+            setTimeout(function(){
+                afterNineYears.style.opacity = "1";
+            }, 1000);
+            setTimeout(function(){
+                afterNineYears.style.opacity = "0";
+            }, 3000);
+            setTimeout(function(){
+                afterNineYears.style.display = "none";
+                happy10thBirthdayBody.style.backgroundImage = "url(getPipboyFromOverseer.png)";
+                pipBoy3000.style.opacity = "1";
+                dialogueContainer.style.opacity = "1";
+                infoBoxTopLeft.style.opacity = "1";
+                talkerName.style.opacity = "1";
+            }, 4000);
+            pipBoy3000.onclick = function() {
+                this.style.display = "none";
+                dialogueContainer.style.opacity = "0";
+                infoBoxTopLeft.style.opacity = "0";
+                setTimeout(function() {
+                    happy10thBirthdayBody.style.backgroundImage = "url(black.jpg)";
+                }, 1000);
+            };
+        </script>
+    </body>
+</html>

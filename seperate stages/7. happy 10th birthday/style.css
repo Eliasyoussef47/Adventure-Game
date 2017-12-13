@@ -26,9 +26,31 @@ body {
     align-items: center;
 }
 
+#afterNineYears {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    z-index: 999;
+    position: absolute;
+    text-transform: uppercase;
+    font-size: 90px;
+    opacity: 0;
+}
+
+#pipBoy3000 {
+    position: absolute;
+    width: 200px;
+    top: 59%;
+    left: 50%;
+    opacity: 0;
+}
+
 #infoBoxTopLeft {
     box-sizing: border-box;
-    padding: 8px 12px 12px 8px;
+    padding: 8px;
     max-width: 50%;
     display: block;
     font-family: sans-serif;
@@ -59,7 +81,7 @@ body {
     left: 0;
     top: 0px;
     position: absolute;
-    background: linear-gradient(to bottom, rgba(52,196,112,1) 50%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to bottom, rgba(52,196,112,1) 0%, rgba(255, 255, 255, 0) 100%);
 }
 #infoBoxTopLeftGeneral {
     font-family: sans-serif;
@@ -68,81 +90,37 @@ body {
     height: 3px;
     width: 100%;
     background: linear-gradient(to right,rgba(255, 255, 255, 0) 0%, rgba(52,196,112,1) 50%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    display: none;
 }
 #infoBoxTopLeftSpecific {
     font-family: sans-serif;
 }
 
-#playpenSelectArea {
-    height: 73%;
-    width: 64%;
-    background-color: rgb(52, 196, 112);
-    position: absolute;
-    top: 22%;
-    left: 28%;
-}
-.selectionArea {
-    opacity: 0;
-    cursor: pointer;
-    transition: 0.1s linear;
-}
-
-.selectionArea:hover {
-    opacity: 0.3;
-}
-.objectPointingArrowGoToFather {
-    position: absolute;
-    top: 74%;
-    left: 45%;
-    transform: rotateZ(0deg);
-    display: block;
-    opacity: 1;
-    cursor: pointer;
-    transition: 0.8s linear;
-}
-.objectPointingArrowToTheChest {
-    position: absolute;
-    top: 58%;
-    left: 45%;
-    transform: rotateZ(-30deg);
-    display: none;
-    opacity: 0;
-    cursor: pointer;
-    transition: 0.8s linear;
-}
-.objectPointingArrowOutOfChest {
-    position: absolute;
-    top: 88%;
-    /* left: 45%; */
-    transform: rotateZ(180deg);
-    display: block;
-    opacity: 1;
-    cursor: pointer;
-    transition: 0.8s linear;
-}
-.objectPointingArrowAtFather {
-    position: absolute;
-    top: 54%;
-    left: 85%;
-    transform: rotateZ(67deg);
-    display: block;
-    opacity: 1;
-    cursor: pointer;
-    transition: 0.8s linear;
-}
-
-#afterOneyYear {
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
+#dialogueContainer {
+    border-width: 3px;
+    border-style: solid;
+    border-image: linear-gradient(to bottom, rgba(52,196,112,1) 0%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 75%, rgba(52,196,112,1) 100%);
+    border-image-slice: 2%;
+    box-sizing: border-box;
+    padding: 1% 1%;
+    text-align: center;
+    font-size: 28px;
+    background: rgba(62, 88, 40, 0.65);
+    color: #caffa8 !important;
     z-index: 999;
+    width: 70%;
     position: absolute;
-    text-transform: uppercase;
-    font-size: 90px;
+    bottom: 10%;
     opacity: 0;
 }
-    
-    
+
+#talkerName {
+    color: #16eaa6;
+    position: absolute;
+    right: 5%;
+    top: 17%;
+    font-size: 160%;
+    text-shadow: 0 0 4px black;
+    opacity: 0;
+}
