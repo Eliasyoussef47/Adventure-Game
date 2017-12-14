@@ -33,7 +33,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    display: none;
     opacity: 0;
 }
 
@@ -62,11 +61,11 @@ body {
 
 #infoBoxTopLeft {
     box-sizing: border-box;
-    padding: 8px;
+    padding: 4px 8px;
     max-width: 50%;
     display: block;
     font-family: sans-serif;
-    font-size: 22px;
+    font-size: 28px;
     color: #10b982;
     /* background: rgba(62, 88, 40, 0.65); */
     position: absolute;
@@ -75,7 +74,6 @@ body {
     text-shadow: 0 0 4px black;
     /* box-shadow: 0px 0px 6px 3px rgba(62, 88, 40, 0.65); */
     opacity: 0;
-    font-family: sans-serif;
 }
 #infoBoxTopLeft:before {
     content: "";
@@ -152,7 +150,6 @@ body {
     justify-content: center;
     font-family: sans-serif;
     box-sizing: border-box;
-    display: none;
     opacity: 0;
 }
 
@@ -209,7 +206,6 @@ button:focus {
     border: 5px solid green;
     border-radius: 10px;
     padding: 10px;
-    display: inline-block;
     margin: 10px;
     text-align: center;
     transition: 0.5s linear;
@@ -267,6 +263,17 @@ button:focus {
 }
 
 .pickUpItem:hover {
+    background-color: rgba(52,196,112,0.3);
+    cursor: pointer;
+}
+
+.attackableEnemy {
+	transition: 0.2s linear;
+    position: absolute;
+    display: none;
+    opacity: 0;
+}
+.attackableEnemy:hover {
     background-color: rgba(52,196,112,0.3);
     cursor: pointer;
 }
@@ -338,5 +345,8 @@ div#inventoryContainer::-webkit-scrollbar-thumb {
 	display: none;
 }
 
-
-
+#Radroach {
+    width: 310px;
+    left: 35%;
+    top: 57%;
+}

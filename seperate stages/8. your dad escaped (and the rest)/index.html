@@ -17,14 +17,20 @@
         </div>
         
         <div id="escapeTheVaultBody" class="levelBody">
-            <img id="objectPointingArrowEscapeTheVaulToUnderTheOverseerOffice" class="pointerCursor objectPointingArrow" src="./objectPointingArrow.png" alt="x">
+            <img id="objectPointingArrowEscapeTheVaulToUnderTheOverseerOffice" class="pointerCursor objectPointingArrow" src="objectPointingArrow.png" alt="x">
 			<div class="selectionArea" id="escapeTheVaulToUnderTheOverseerOfficeDoorSelectArea"></div>
+			<img id="Radroach" class="attackableEnemy" src="Radroach.png" alt="Radroach">
         </div>
         
         <div id="dialogueContainer"></div>
         <button class="pointerCursor" id="dialogueReadButton">Next</button>
         <p id="talkerName">Amata</p>
         <img id="objectPointingArrowGoBack" class="pointerCursor objectPointingArrow" src="./objectPointingArrow.png" alt="x">
+		<div id="infoBoxTopLeft">
+            <div id="infoBoxTopLeftGeneral"></div>
+            <div id="infoBoxTopLeftDivider"></div>
+            <div id="infoBoxTopLeftSpecific">Take the Pip-Boy 3000 from the overseer</div>
+        </div>
         <img id="inventoryButton" class="pointerCursor" src="./inventoryIcon.png" alt="x">
         <div id="pipBoy">
             <img id="pipBoyPhoto" src="pipBoy.png" alt="pipBoy">
@@ -223,6 +229,13 @@ function changeBI(element, link) { //change background image
 				function vaultExitRoom() {
 					hideOpacityDisplay(escapeTheVaulToUnderTheOverseerOfficeDoorSelectArea);
 					changeBI(escapeTheVaultBody, "url(vaultExitRoom.png)");
+					showOpacityDisplay(Radroach);
+					showOpacityDisplay(infoBoxTopLeft);
+					infoBoxTopLeftSpecific.innerHTML = "Kill the radroach to continue";
+					Radroach.onclick = function() {
+						hideOpacityDisplay(this);
+						hideOpacityDisplay(infoBoxTopLeft);
+					};
 				};
                 //level start
                 hideOpacityDisplay(yourDadEscapedBody);
