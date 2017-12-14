@@ -117,7 +117,7 @@ body {
     box-sizing: border-box;
     padding: 1% 1%;
     text-align: center;
-    font-size: 28px;
+    font-size: 35px;
     background: rgba(62, 88, 40, 0.65);
     color: #caffa8 !important;
     z-index: 1;
@@ -259,30 +259,6 @@ button:focus {
     z-index: 7;
 }
 
-#objectPointingArrowYourDadEscapedToBBGun {
-    top: 60%;
-    left: 45%;
-    transform: rotateZ(0deg);
-}
-
-#objectPointingArrowYourDadEscapedToBaseBallBat {
-    top: 78%;
-    left: 65%;
-    transform: rotateZ(0deg);
-}
-
-#objectPointingArrowYourDadEscapedOutOfTheRoom {
-    top: 73%;
-    left: 24%;
-    transform: rotateZ(-40deg);
-}
-
-#objectPointingArrowEscapeTheVaulToUnderTheOverseerOffice {
-    top: 50%;
-    left: 38%;
-    transform: rotateZ(26deg);
-}
-
 .pickUpItem {
     transition: 0.2s linear;
     position: absolute;
@@ -293,6 +269,16 @@ button:focus {
 .pickUpItem:hover {
     background-color: rgba(52,196,112,0.3);
     cursor: pointer;
+}
+
+.selectionArea {
+    opacity: 0;
+    cursor: pointer;
+    transition: 0.1s linear;
+}
+
+.selectionArea:hover {
+    opacity: 0.3;
 }
 
 #pickUpItemYourDadEscapedBBGun {
@@ -317,3 +303,40 @@ button:focus {
 div#inventoryContainer::-webkit-scrollbar-thumb {
     background-color: #1c5c25;
 }
+
+#objectPointingArrowYourDadEscapedToBBGun {
+    top: 60%;
+    left: 45%;
+    transform: rotateZ(0deg);
+}
+
+#objectPointingArrowYourDadEscapedToBaseBallBat {
+    top: 79%;
+    left: 66%;
+    transform: rotateZ(0deg);
+}
+
+#objectPointingArrowYourDadEscapedOutOfTheRoom {
+    top: 73%;
+    left: 24%;
+    transform: rotateZ(-40deg);
+}
+
+#objectPointingArrowEscapeTheVaulToUnderTheOverseerOffice {
+    top: 50%;
+    left: 38%;
+    transform: rotateZ(26deg);
+}
+
+#escapeTheVaulToUnderTheOverseerOfficeDoorSelectArea {
+	height: 32%;
+	width: 19%;
+	background-color: rgb(52, 196, 112);
+	position: absolute;
+	top: 16%;
+	left: 43%;
+	display: none;
+}
+
+
+

@@ -18,6 +18,7 @@
         
         <div id="escapeTheVaultBody" class="levelBody">
             <img id="objectPointingArrowEscapeTheVaulToUnderTheOverseerOffice" class="pointerCursor objectPointingArrow" src="./objectPointingArrow.png" alt="x">
+			<div class="selectionArea" id="escapeTheVaulToUnderTheOverseerOfficeDoorSelectArea"></div>
         </div>
         
         <div id="dialogueContainer"></div>
@@ -211,6 +212,18 @@ function changeBI(element, link) { //change background image
             
             /*///---<<<begin new level (escapeTheVault)--->>>///*/
             function escapeTheVault() {
+				function underTheOverseerOffice() {
+					hideOpacityDisplay(objectPointingArrowEscapeTheVaulToUnderTheOverseerOffice);
+					changeBI(escapeTheVaultBody, "url(underTheOverseerOffice.png)");
+					showDisplay(escapeTheVaulToUnderTheOverseerOfficeDoorSelectArea);
+					escapeTheVaulToUnderTheOverseerOfficeDoorSelectArea.onclick = function() {
+						vaultExitRoom();
+					};
+				};
+				function vaultExitRoom() {
+					hideOpacityDisplay(escapeTheVaulToUnderTheOverseerOfficeDoorSelectArea);
+					changeBI(escapeTheVaultBody, "url(vaultExitRoom.png)");
+				};
                 //level start
                 hideOpacityDisplay(yourDadEscapedBody);
                 showOpacityDisplay(escapeTheVaultBody);
@@ -219,7 +232,9 @@ function changeBI(element, link) { //change background image
                     changeBI(escapeTheVaultBody, "url(inOverseerOffice.png)");
                     showOpacity(inventoryButton);
                     showOpacityDisplay(objectPointingArrowEscapeTheVaulToUnderTheOverseerOffice);
-                    objectPointingArrowEscapeTheVaulToUnderTheOverseerOffice.onclick = function() {};
+                    objectPointingArrowEscapeTheVaulToUnderTheOverseerOffice.onclick = function() {
+						underTheOverseerOffice();
+					};
                 }, 1000);
             };
         </script>
