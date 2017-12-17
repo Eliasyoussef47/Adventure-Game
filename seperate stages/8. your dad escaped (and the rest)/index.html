@@ -25,7 +25,9 @@
 			<img id="objectPointingArrowEscapeTheVaultInVaultExitTunnelToOutside" class="pointerCursor objectPointingArrow" src="objectPointingArrow.png" alt="x">
         </div>
 		
-		<div id="outOfTheVaultBody"  class="levelBody"></div>
+		<div id="outOfTheVaultBody"  class="levelBody">
+			<img id="objectPointingArrowOutOfTheVaultBodyToVault112" class="pointerCursor objectPointingArrow" src="objectPointingArrow.png" alt="x">
+		</div>
         
         <div id="dialogueContainer"></div>
         <button class="pointerCursor" id="dialogueReadButton">Next</button>
@@ -291,6 +293,7 @@ function changeBI(element, link) { //change background image
 				setTimeout(function(){
                     changeBI(outOfTheVaultBody, "url(outOfTheVault.png)");
                 }, 2000);
+				showOpacityDisplay(objectPointingArrowOutOfTheVaultBodyToVault112);
 			};
         </script>
     </body>
