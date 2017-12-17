@@ -17,10 +17,15 @@
         </div>
         
         <div id="escapeTheVaultBody" class="levelBody">
-            <img id="objectPointingArrowEscapeTheVaulToUnderTheOverseerOffice" class="pointerCursor objectPointingArrow" src="objectPointingArrow.png" alt="x">
-			<div class="selectionArea" id="escapeTheVaulToUnderTheOverseerOfficeDoorSelectArea"></div>
+            <img id="objectPointingArrowEscapeTheVaultToUnderTheOverseerOffice" class="pointerCursor objectPointingArrow" src="objectPointingArrow.png" alt="x">
+			<div class="selectionArea" id="escapeTheVaultToUnderTheOverseerOfficeDoorSelectArea"></div>
 			<img id="Radroach" class="attackableEnemy" src="Radroach.png" alt="Radroach">
+			<div class="selectionArea" id="vaultExitRoomDoorSwitchSelectArea"></div>
+			<div class="selectionArea" id="vaultDoorControlPanelSwitchSelectArea"></div>
+			<img id="objectPointingArrowEscapeTheVaultInVaultExitTunnelToOutside" class="pointerCursor objectPointingArrow" src="objectPointingArrow.png" alt="x">
         </div>
+		
+		<div id="outOfTheVaultBody"  class="levelBody"></div>
         
         <div id="dialogueContainer"></div>
         <button class="pointerCursor" id="dialogueReadButton">Next</button>
@@ -118,51 +123,6 @@ function changeBI(element, link) { //change background image
             
             yourDadEscaped();
             function yourDadEscaped() {
-                function finishedDialogueWithAmata() {
-                    changeBI(yourDadEscapedBody, "url(finishedDialogueWithAmata.png)");
-                    showOpacityDisplay(objectPointingArrowYourDadEscapedToBBGun);
-                    showOpacityDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
-                    hideOpacityDisplay(objectPointingArrowGoBack);
-                    hideOpacityDisplay(pickUpItemYourDadEscapedBBGun);
-                    hideOpacityDisplay(pickUpItemYourDadEscapedBaseBallBat);
-                    if (inventory.includes("BB Gun")) {
-                        hideDisplay(objectPointingArrowYourDadEscapedToBBGun);
-                    };
-                    if (inventory.includes("Baseball bat")) {
-                        hideDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
-                    };
-                    if (inventory.includes("BB Gun") && inventory.includes("Baseball bat")) {
-                        showOpacityDisplay(objectPointingArrowYourDadEscapedOutOfTheRoom);
-                    };
-                };
-                function lookingAtBBGun() {
-                    changeBI(yourDadEscapedBody, "url(lookingAtBBGun.png)");
-                    showOpacityDisplay(pickUpItemYourDadEscapedBBGun);
-                    showOpacityDisplay(objectPointingArrowGoBack);
-                    hideOpacityDisplay(objectPointingArrowYourDadEscapedToBBGun);
-                    hideOpacityDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
-                    pickUpItemYourDadEscapedBBGun.onclick = function() {addItemToInventory(this)};
-                    objectPointingArrowGoBack.onclick = function() {finishedDialogueWithAmata()};
-                    setTimeout(function(){
-                        showOpacityDisplay(objectPointingArrowGoBack);
-                        showOpacityDisplay(pickUpItemYourDadEscapedBBGun);
-                        //this is a bug fix for for when the user clicks too fast on the arrow that he skips the animation and because of that it doesn't show the elements
-                    }, 1000);
-                };
-                function lookingAtBaseBallBat() {
-                    changeBI(yourDadEscapedBody, "url(lookingAtBaseBallBat.png)");
-                    showOpacityDisplay(pickUpItemYourDadEscapedBaseBallBat);
-                    showOpacityDisplay(objectPointingArrowGoBack);
-                    hideOpacityDisplay(objectPointingArrowYourDadEscapedToBBGun);
-                    hideOpacityDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
-                    pickUpItemYourDadEscapedBaseBallBat.onclick = function() {addItemToInventory(this)};
-                    objectPointingArrowGoBack.onclick = function() {finishedDialogueWithAmata()};
-                    setTimeout(function(){ 
-                        showOpacityDisplay(objectPointingArrowGoBack);
-                        showOpacityDisplay(pickUpItemYourDadEscapedBaseBallBat);
-                        //this is a bug fix for for when the user clicks too fast on the arrow that he skips the animation and because of that it doesn't show the elements
-                    }, 1000);
-                };
                 //level start
                 setTimeout(function(){
                     showOpacityDisplay(yourDadEscapedBody);
@@ -196,6 +156,52 @@ function changeBI(element, link) { //change background image
                     escapeTheVault();
                 };
             };
+			
+			function finishedDialogueWithAmata() {
+                    changeBI(yourDadEscapedBody, "url(finishedDialogueWithAmata.png)");
+                    showOpacityDisplay(objectPointingArrowYourDadEscapedToBBGun);
+                    showOpacityDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
+                    hideOpacityDisplay(objectPointingArrowGoBack);
+                    hideOpacityDisplay(pickUpItemYourDadEscapedBBGun);
+                    hideOpacityDisplay(pickUpItemYourDadEscapedBaseBallBat);
+                    if (inventory.includes("BB Gun")) {
+                        hideDisplay(objectPointingArrowYourDadEscapedToBBGun);
+                    };
+                    if (inventory.includes("Baseball bat")) {
+                        hideDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
+                    };
+                    if (inventory.includes("BB Gun") && inventory.includes("Baseball bat")) {
+                        showOpacityDisplay(objectPointingArrowYourDadEscapedOutOfTheRoom);
+                    };
+                };
+                function lookingAtBBGun() {
+                    changeBI(yourDadEscapedBody, "url(lookingAtBBGun.png)");
+                    showOpacityDisplay(pickUpItemYourDadEscapedBBGun);
+                    showOpacityDisplay(objectPointingArrowGoBack);
+                    hideOpacityDisplay(objectPointingArrowYourDadEscapedToBBGun);
+                    hideOpacityDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
+                    pickUpItemYourDadEscapedBBGun.onclick = function() {addItemToInventory(this)};
+                    objectPointingArrowGoBack.onclick = function() {finishedDialogueWithAmata()};
+                    setTimeout(function(){
+                        showOpacityDisplay(objectPointingArrowGoBack);
+//                        showOpacityDisplay(pickUpItemYourDadEscapedBBGun);
+                        //this is a bug fix for for when the user clicks too fast on the arrow that he skips the animation and because of that it doesn't show the elements
+                    }, 1000);
+                };
+                function lookingAtBaseBallBat() {
+                    changeBI(yourDadEscapedBody, "url(lookingAtBaseBallBat.png)");
+                    showOpacityDisplay(pickUpItemYourDadEscapedBaseBallBat);
+                    showOpacityDisplay(objectPointingArrowGoBack);
+                    hideOpacityDisplay(objectPointingArrowYourDadEscapedToBBGun);
+                    hideOpacityDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
+                    pickUpItemYourDadEscapedBaseBallBat.onclick = function() {addItemToInventory(this)};
+                    objectPointingArrowGoBack.onclick = function() {finishedDialogueWithAmata()};
+                    setTimeout(function(){
+                        showOpacityDisplay(objectPointingArrowGoBack);
+//                        showOpacityDisplay(pickUpItemYourDadEscapedBaseBallBat);
+                        //this is a bug fix for for when the user clicks too fast on the arrow that he skips the animation and because of that it doesn't show the elements
+                    }, 1000);
+                };
             function skipYourDadEscapedBody() {
                     hideOpacityDisplay(dialogueContainer);
                     hideOpacityDisplay(dialogueReadButton);
@@ -218,25 +224,6 @@ function changeBI(element, link) { //change background image
             
             /*///---<<<begin new level (escapeTheVault)--->>>///*/
             function escapeTheVault() {
-				function underTheOverseerOffice() {
-					hideOpacityDisplay(objectPointingArrowEscapeTheVaulToUnderTheOverseerOffice);
-					changeBI(escapeTheVaultBody, "url(underTheOverseerOffice.png)");
-					showDisplay(escapeTheVaulToUnderTheOverseerOfficeDoorSelectArea);
-					escapeTheVaulToUnderTheOverseerOfficeDoorSelectArea.onclick = function() {
-						vaultExitRoom();
-					};
-				};
-				function vaultExitRoom() {
-					hideOpacityDisplay(escapeTheVaulToUnderTheOverseerOfficeDoorSelectArea);
-					changeBI(escapeTheVaultBody, "url(vaultExitRoom.png)");
-					showOpacityDisplay(Radroach);
-					showOpacityDisplay(infoBoxTopLeft);
-					infoBoxTopLeftSpecific.innerHTML = "Kill the radroach to continue";
-					Radroach.onclick = function() {
-						hideOpacityDisplay(this);
-						hideOpacityDisplay(infoBoxTopLeft);
-					};
-				};
                 //level start
                 hideOpacityDisplay(yourDadEscapedBody);
                 showOpacityDisplay(escapeTheVaultBody);
@@ -244,12 +231,67 @@ function changeBI(element, link) { //change background image
                 setTimeout(function(){
                     changeBI(escapeTheVaultBody, "url(inOverseerOffice.png)");
                     showOpacity(inventoryButton);
-                    showOpacityDisplay(objectPointingArrowEscapeTheVaulToUnderTheOverseerOffice);
-                    objectPointingArrowEscapeTheVaulToUnderTheOverseerOffice.onclick = function() {
+                    showOpacityDisplay(objectPointingArrowEscapeTheVaultToUnderTheOverseerOffice);
+                    objectPointingArrowEscapeTheVaultToUnderTheOverseerOffice.onclick = function() {
 						underTheOverseerOffice();
 					};
                 }, 1000);
+				
+				function underTheOverseerOffice() {
+					hideOpacityDisplay(objectPointingArrowEscapeTheVaultToUnderTheOverseerOffice);
+					changeBI(escapeTheVaultBody, "url(underTheOverseerOffice.png)");
+					showDisplay(escapeTheVaultToUnderTheOverseerOfficeDoorSelectArea);
+					escapeTheVaultToUnderTheOverseerOfficeDoorSelectArea.onclick = function() {
+						vaultExitRoom();
+					};
+				};
+				function vaultExitRoom() {
+					hideOpacityDisplay(escapeTheVaultToUnderTheOverseerOfficeDoorSelectArea);
+					changeBI(escapeTheVaultBody, "url(vaultExitRoom.png)");
+					showOpacityDisplay(Radroach);
+					showOpacityDisplay(infoBoxTopLeft);
+					infoBoxTopLeftSpecific.innerHTML = "Kill the radroach to continue";
+					Radroach.onclick = function() {
+						hideDisplay(this);
+						infoBoxTopLeftSpecific.innerHTML = "Click on the door switch";
+						showDisplay(vaultExitRoomDoorSwitchSelectArea);
+						vaultExitRoomDoorSwitchSelectArea.onclick = function() {
+							vaultDoorInFrontOfControlPanel();
+						};
+					};
+				};
+				function vaultDoorInFrontOfControlPanel() {
+					hideOpacityDisplay(vaultExitRoomDoorSwitchSelectArea);
+					hideOpacityDisplay(infoBoxTopLeft);
+					changeBI(escapeTheVaultBody, "url(vaultExitControlPanel.png)");
+					showDisplay(vaultDoorControlPanelSwitchSelectArea);
+					vaultDoorControlPanelSwitchSelectArea.onclick = function() {
+						vaultExitTunnel();
+					};
+				};
+				function vaultExitTunnel() {
+					hideOpacityDisplay(vaultDoorControlPanelSwitchSelectArea);
+					changeBI(escapeTheVaultBody, "url(vaultExitTunnel.png)");
+					showOpacityDisplay(objectPointingArrowEscapeTheVaultInVaultExitTunnelToOutside);
+					objectPointingArrowEscapeTheVaultInVaultExitTunnelToOutside.onclick = function() {
+						hideOpacityDisplay(this);
+                    	hideOpacity(inventoryButton);
+						outOfTheVault();
+					};
+				};
             };
+			
+			/*///---<<<begin new level (outOfTheVault)--->>>///*/
+			function outOfTheVault() {
+				hideOpacityDisplay(escapeTheVaultBody);
+                showOpacityDisplay(outOfTheVaultBody);
+				setTimeout(function(){
+                    changeBI(outOfTheVaultBody, "url(white.jpg)");
+                }, 800);
+				setTimeout(function(){
+                    changeBI(outOfTheVaultBody, "url(outOfTheVault.png)");
+                }, 2000);
+			};
         </script>
     </body>
 </html>

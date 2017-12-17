@@ -29,7 +29,7 @@ body {
     height: 100vh;
     width: 100vw;
     transition: 0.8s linear;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -42,6 +42,10 @@ body {
 
 #escapeTheVaultBody {
     background-image: url(black.jpg);
+}
+
+#outOfTheVaultBody {
+	background-image: url(black.jpg);
 }
 
 .afterXYears {
@@ -184,11 +188,11 @@ button:focus {
 }
 
 #inventoryContainer {
-    height: 373px;
-    width: 470px;
+    height: 63%;
+    width: 49%;
     /* border: 5px solid green; */
     margin: auto;
-    /*    background-color: #00000080;*/
+/*    background-color: #00000080;*/
     border-radius: 10px;
     /* padding: 20px; */
     box-sizing: border-box;
@@ -251,7 +255,7 @@ button:focus {
     /* height: 100%; */
     left: 0;
     /* top: -1px; */
-    bottom: 3px;
+    bottom: 2px;
     z-index: 7;
 }
 
@@ -329,19 +333,45 @@ div#inventoryContainer::-webkit-scrollbar-thumb {
     transform: rotateZ(-40deg);
 }
 
-#objectPointingArrowEscapeTheVaulToUnderTheOverseerOffice {
+#objectPointingArrowEscapeTheVaultToUnderTheOverseerOffice {
     top: 50%;
     left: 38%;
     transform: rotateZ(26deg);
 }
 
-#escapeTheVaulToUnderTheOverseerOfficeDoorSelectArea {
+#objectPointingArrowEscapeTheVaultInVaultExitTunnelToOutside {
+	top: 50%;
+    left: 45%;
+    transform: rotateZ(0deg);
+}
+
+#escapeTheVaultToUnderTheOverseerOfficeDoorSelectArea {
 	height: 32%;
 	width: 19%;
 	background-color: rgb(52, 196, 112);
 	position: absolute;
 	top: 16%;
 	left: 43%;
+	display: none;
+}
+
+#vaultDoorControlPanelSwitchSelectArea {
+	height: 12%;
+    width: 7%;
+    background-color: rgb(52, 196, 112);
+    position: absolute;
+    top: 65%;
+    left: 40%;
+	display: none;
+}
+
+#vaultExitRoomDoorSwitchSelectArea {
+	height: 9%;
+	width: 3%;
+	background-color: rgb(52, 196, 112);
+	position: absolute;
+	top: 35%;
+	left: 54%;
 	display: none;
 }
 
