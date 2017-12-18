@@ -48,6 +48,14 @@ body {
 	background-image: url(black.jpg);
 }
 
+#youFoundYourDadVault112Body {
+	background-image: url(black.jpg);
+}
+
+#meetDeathClawYouFuckedUpBody {
+	background-image: url(black.jpg);
+}
+
 .afterXYears {
     background-color: white;
     display: flex;
@@ -345,6 +353,20 @@ div#inventoryContainer::-webkit-scrollbar-thumb {
     transform: rotateZ(0deg);
 }
 
+#objectPointingArrowOutOfTheVaultBodyToVault112 {
+	position: absolute;
+	top: 53%;
+	left: 53%;
+	transform: rotateZ(-20deg);
+}
+
+#objectPointingArrowOutOfTheVaultBodyToDangerousWasteland {
+	position: absolute;
+	top: 62%;
+	left: 19%;
+	transform: rotateZ(-36deg);
+}
+
 #escapeTheVaultToUnderTheOverseerOfficeDoorSelectArea {
 	height: 32%;
 	width: 19%;
@@ -379,4 +401,38 @@ div#inventoryContainer::-webkit-scrollbar-thumb {
     width: 310px;
     left: 35%;
     top: 57%;
+}
+
+#youDied {
+	border-width: 3px;
+    border-style: solid;
+    border-image: linear-gradient(to bottom, rgba(52,196,112,1) 0%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 75%, rgba(52,196,112,1) 100%);
+    border-image-slice: 2%;
+    box-sizing: border-box;
+    padding: 2% 3%;
+	opacity: 0;
+    display: none;
+    text-align: center;
+    font-size: 35px;
+    background: rgba(62, 88, 40, 0.65);
+    color: #caffa8 !important;
+    transition: 0.8s linear;
+    z-index: 999;
+}
+
+#youWon {
+	border-width: 3px;
+    border-style: solid;
+    border-image: linear-gradient(to bottom, rgba(52,196,112,1) 0%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 75%, rgba(52,196,112,1) 100%);
+    border-image-slice: 2%;
+    box-sizing: border-box;
+    padding: 2% 3%;
+	opacity: 0;
+    display: none;
+    text-align: center;
+    font-size: 35px;
+    background: rgba(62, 88, 40, 0.65);
+    color: #caffa8 !important;
+    transition: 0.8s linear;
+    z-index: 999;
 }

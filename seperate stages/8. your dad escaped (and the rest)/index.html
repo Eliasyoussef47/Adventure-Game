@@ -6,7 +6,7 @@
         <title>Document</title>
         <link rel="stylesheet" href="style.css">
     </head>
-    <body>
+    <body id="body">
         <div id="yourDadEscapedBody" class="levelBody">
             <div class="afterXYears" id="afterNineYears">Nine Years Later</div>
             <img id="pickUpItemYourDadEscapedBBGun" class="pickUpItem" title="BB Gun" src="BB Gun.png" alt="x">
@@ -26,12 +26,22 @@
         </div>
 		
 		<div id="outOfTheVaultBody"  class="levelBody">
-			<img id="objectPointingArrowOutOfTheVaultBodyToVault112" class="pointerCursor objectPointingArrow" src="objectPointingArrow.png" alt="x">
+			<img id="objectPointingArrowOutOfTheVaultBodyToVault112" class="pointerCursor objectPointingArrow" src="objectPointingArrow.png" title="Go to vault 112" alt="x">
+			<img id="objectPointingArrowOutOfTheVaultBodyToDangerousWasteland" class="pointerCursor objectPointingArrow" src="objectPointingArrow.png" title="Explore the dangerous waste land" alt="x">
 		</div>
-        
+		
+		<div id="youFoundYourDadVault112Body" class="levelBody">
+			<div id="youWon">You Won</div>
+		</div>
+		
+		<div id="meetDeathClawYouFuckedUpBody" class="levelBody">
+			<div id="youDied">You died. Game over</div>
+		</div>
+		
+		<!--    Standard Elements    -->
         <div id="dialogueContainer"></div>
         <button class="pointerCursor" id="dialogueReadButton">Next</button>
-        <p id="talkerName">Amata</p>
+        <p id="talkerName"></p>
         <img id="objectPointingArrowGoBack" class="pointerCursor objectPointingArrow" src="./objectPointingArrow.png" alt="x">
 		<div id="infoBoxTopLeft">
             <div id="infoBoxTopLeftGeneral"></div>
@@ -46,6 +56,7 @@
         </div>
         
         <script>
+//inventory code
 var inventory = [];
 inventoryButton.onclick = function(){
     if (inventoryContainer.style.opacity === "1") {
@@ -72,8 +83,9 @@ inventoryButton.onclick = function(){
 };
 var name = "Elias";
 var gender = "Male";
-var talkerText = [];
+var talkerText = [];//the text that the speaker says
 var talkerTextCount = 0;
+//dialogue system
 var afterFinishedDialogue ;
 dialogueReadButton.onclick = function() {
     talkerTextCount++;
@@ -146,6 +158,7 @@ function changeBI(element, link) { //change background image
                     dialogueContainer.innerHTML = talkerText[talkerTextCount];
                     showOpacityDisplay(dialogueContainer);
                     showOpacityDisplay(talkerName);
+					talkerName.innerHTML = "Amata";
                     showOpacityDisplay(dialogueReadButton);
                     showOpacity(inventoryButton);
                     afterFinishedDialogue = finishedDialogueWithAmata;
@@ -278,6 +291,7 @@ function changeBI(element, link) { //change background image
 					objectPointingArrowEscapeTheVaultInVaultExitTunnelToOutside.onclick = function() {
 						hideOpacityDisplay(this);
                     	hideOpacity(inventoryButton);
+						changeBI(body, "url(white.jpg)");
 						outOfTheVault();
 					};
 				};
@@ -287,14 +301,78 @@ function changeBI(element, link) { //change background image
 			function outOfTheVault() {
 				hideOpacityDisplay(escapeTheVaultBody);
                 showOpacityDisplay(outOfTheVaultBody);
+				showOpacity(infoBoxTopLeft);
 				setTimeout(function(){
                     changeBI(outOfTheVaultBody, "url(white.jpg)");
                 }, 800);
 				setTimeout(function(){
                     changeBI(outOfTheVaultBody, "url(outOfTheVault.png)");
+					showOpacityDisplay(objectPointingArrowOutOfTheVaultBodyToVault112);
+					showOpacityDisplay(objectPointingArrowOutOfTheVaultBodyToDangerousWasteland);
+					showOpacity(inventoryButton);
                 }, 2000);
-				showOpacityDisplay(objectPointingArrowOutOfTheVaultBodyToVault112);
+				objectPointingArrowOutOfTheVaultBodyToVault112.onmouseover = function(){
+					showDisplay(infoBoxTopLeft);
+					infoBoxTopLeftSpecific.innerHTML = "Go to vault 112";
+				};
+				objectPointingArrowOutOfTheVaultBodyToVault112.onmouseout = function(){
+					hideDisplay(infoBoxTopLeft);
+				};
+				objectPointingArrowOutOfTheVaultBodyToDangerousWasteland.onmouseover = function(){
+					showDisplay(infoBoxTopLeft);
+					infoBoxTopLeftSpecific.innerHTML = "Explore the dangerous waste land";
+				};
+				objectPointingArrowOutOfTheVaultBodyToDangerousWasteland.onmouseout = function(){
+					hideDisplay(infoBoxTopLeft);
+				};
+				objectPointingArrowOutOfTheVaultBodyToVault112.onclick = function() {
+					hideOpacityDisplay(this);
+                    hideOpacity(inventoryButton);
+					youFoundYourDadVault112();
+				};
+				objectPointingArrowOutOfTheVaultBodyToDangerousWasteland.onclick = function() {
+					hideOpacityDisplay(this);
+                    hideOpacity(inventoryButton);
+					meetDeathClawYouFuckedUp();
+				};
 			};
+			
+			/*///---<<<begin new level (youFoundYourDadVault112)--->>>///*/
+			function youFoundYourDadVault112() {
+				changeBI(body, "url(black.jpg)");
+				hideOpacityDisplay(outOfTheVaultBody);
+                showOpacityDisplay(youFoundYourDadVault112Body);
+				setTimeout(function(){
+                    changeBI(youFoundYourDadVault112Body, "url(youFoundYourDadVault112.png)");
+					showOpacity(inventoryButton);
+					showOpacityDisplay(infoBoxTopLeft);
+					infoBoxTopLeftSpecific.innerHTML = "You found your dad";
+                }, 800);
+				setTimeout(function(){
+                    changeBI(meetDeathClawYouFuckedUpBody, "url(black.jpg)");
+					hideOpacityDisplay(infoBoxTopLeft);
+					showOpacityDisplay(youWon);
+                }, 2800);
+			};
+			
+			/*///---<<<begin new level (meetDeathClawYouFuckedUp)--->>>///*/
+			function meetDeathClawYouFuckedUp() {
+				changeBI(body, "url(black.jpg)");
+				hideOpacityDisplay(outOfTheVaultBody);
+                showOpacityDisplay(meetDeathClawYouFuckedUpBody);
+				setTimeout(function(){
+                    changeBI(meetDeathClawYouFuckedUpBody, "url(meetDeathClawYouFuckedUp.png)");
+					showOpacity(inventoryButton);
+					showOpacityDisplay(infoBoxTopLeft);
+					infoBoxTopLeftSpecific.innerHTML = "You Fucked Up. You found a death claw that will kill you ";
+                }, 800);
+				setTimeout(function(){
+                    changeBI(meetDeathClawYouFuckedUpBody, "url(black.jpg)");
+					hideOpacityDisplay(infoBoxTopLeft);
+					showOpacityDisplay(youDied);
+                }, 2800);
+			};
+			
         </script>
     </body>
 </html>
