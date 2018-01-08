@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Adventure Game</title>
+        <link href="Graphics/CSS/style.css" rel="stylesheet" type="text/css" media="screen">
+		<script src="Javascript/JS.js" type="text/javascript"></script>
+    </head>
+    <body onLoad="pleasStandByVideoF()">
+        <video id="pleasStandByVideo" src="Graphics/Videos/Please Stand By.mp4" preload="auto" autoplay muted></video>
+		
+		<div id="startMenuBody" class="levelBody">
+			<img src="Graphics/Background Images/FO3_loading_screen1.jpg" class="hidden" alt="FO3_loading_screen1">
+			<img src="Graphics/Background Images/FO3_loading_screen2.jpg" class="hidden" alt="FO3_loading_screen2">
+			<img src="Graphics/Background Images/FO3_loading_screen3.jpg" class="hidden" alt="FO3_loading_screen3">
+			<img src="Graphics/Background Images/FO3_loading_screen4.jpg" class="hidden" alt="FO3_loading_screen4">
+			<img src="Graphics/Background Images/FO3_loading_screen5.jpg" class="hidden" alt="FO3_loading_screen5">
+			<audio id="fallout3Theme" src="Audio/Fallout 3 theme.mp3" preload="auto" loop></audio>
+			<h1 id="startMenuGameTitle">FALLOUT 3</h1>
+			<div id="startMenuOptionsMenuContainer">
+				<ul id="startMenuOptionsMenu">
+					<li id="startGameButton" class="startMenuOptionsMenuOptions">New Game</li>
+					<li id="quitGameButton" class="startMenuOptionsMenuOptions">Quit</li>
+				</ul>
+			</div>
+			<div id="closeFuckOffThen" class="hidden"><div id="fuckOffThen" class="hidden">FUCK OFF THEN</div></div>
+		</div>
+		
+		<div id="startGameIntroBody" class="levelBody">
+			<img id="bosSoldierInFrontOfTheWasteland" src="Graphics/Background Images/BoS_soldier_in_front_of_the_wasteland.jpg" alt="xxxxx">
+			<h1 id="bethesdaGameStudiosTitle"><span id="bethesdaGameStudiosTitleSpan">Bethesda<span id="bethesdaGameStudiosTitleSpanElias">Elias</span></span> Game Studios Presents</h1>
+			<div id="fallout3AdventureGameContainer">
+				<h1 id="fallout3TitleStartGameIntro">Fallout 3</h1>
+				<h1 id="fallout3AdventureGameTitleStartGameIntro">Adventure game</h1>
+			</div>
+			<h1 id="warWarNeverChanges">War.War Never Changes.</h1>
+			<div id="vaultTecLogoContainer">
+				<img id="vaultTecLogoStartGameIntro" src="Graphics/Other/Vault_tec_logo.png" alt="xxxxx">
+				<h1 id="vaultTecLogoTitle">Vault-Tec</h1>
+				<h3 id="vaultTecLogoSlogan">Prepare for the future.</h3>
+			</div>
+		</div>
+		
+		
+		
+		
+		<!--    Standard Elements    -->
+        <div id="dialogueContainer"></div>
+        <button class="pointerCursor" id="dialogueReadButton">Next</button>
+        <p id="talkerName"></p>
+        <img id="objectPointingArrowGoBack" class="pointerCursor objectPointingArrow" src="Graphics/Other/objectPointingArrow.png" alt="x">
+		<div id="infoBoxTopLeft">
+            <div id="infoBoxTopLeftGeneral"></div>
+            <div id="infoBoxTopLeftDivider"></div>
+            <div id="infoBoxTopLeftSpecific">Take the Pip-Boy 3000 from the overseer</div>
+        </div>
+		<div id="youWon">You Won</div>
+		<div id="youDied">You died. Game over</div>
+        <img id="inventoryButton" class="pointerCursor" src="Graphics/Other/inventoryIcon.png" alt="x">
+        <div id="pipBoy">
+            <img id="pipBoyPhoto" src="Graphics/Other/pipBoy.png" alt="pipBoy">
+            <div id="inventoryContainer"></div>
+            <img id="pipBoyForPiece" src="Graphics/Other/pipBoyForPiece.png" alt="x">
+        </div>
+    </body>
+</html>

@@ -5,28 +5,36 @@
 </head>
 <body>
 <style>
-figure {
-    width: 36%;
-    margin: 8px auto;
-}
-
-div.stretchy-wrapper {
-    width: 100%;
-    padding-bottom: 48.48%; /* 16:9 */
-    position: relative;
-    background: black;
-}
+	#box {
+		background-color: red;
+		height: 100px;
+		width: 100px;
+		border: 5px solid black;
+	}
 </style>
 
-<figure>
-    <div class="stretchy-wrapper"></div>
-</figure>
-    
-<script>
-//            setTimeout(function(){
-//                    object.style.display = "none";
-//                }, 900);
-</script>
+	<div id="box"></div>
+	<button id="button">Click me</button>
+	<script>
+			document.cookie = "color=green";
+		function getCookie(cname) {
+				var name = cname + "=";
+				var decodedCookie = decodeURIComponent(document.cookie);
+				var ca = decodedCookie.split(';');
+				for(var i = 0; i <ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') {
+						c = c.substring(1);
+					}
+					if (c.indexOf(name) == 0) {
+						return c.substring(name.length, c.length);
+					}
+				}
+				return "";
+			};
+		button.onclick = function() {
+		};
+	</script>
 
 </body>
 </html>

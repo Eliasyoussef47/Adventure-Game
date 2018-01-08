@@ -14,6 +14,7 @@
             <img id="objectPointingArrowYourDadEscapedToBBGun" class="pointerCursor objectPointingArrow" src="./objectPointingArrow.png" alt="x">
             <img id="objectPointingArrowYourDadEscapedToBaseBallBat" class="pointerCursor objectPointingArrow" src="./objectPointingArrow.png" alt="x">
             <img id="objectPointingArrowYourDadEscapedOutOfTheRoom" class="pointerCursor objectPointingArrow" src="./objectPointingArrow.png" alt="x">
+			<img id="objectPointingArrowYourDadEscapedGoBackToSleep" class="pointerCursor objectPointingArrow" src="./objectPointingArrow.png" alt="x">
         </div>
         
         <div id="escapeTheVaultBody" class="levelBody">
@@ -31,11 +32,11 @@
 		</div>
 		
 		<div id="youFoundYourDadVault112Body" class="levelBody">
-			<div id="youWon">You Won</div>
+			
 		</div>
 		
 		<div id="meetDeathClawYouFuckedUpBody" class="levelBody">
-			<div id="youDied">You died. Game over</div>
+			
 		</div>
 		
 		<!--    Standard Elements    -->
@@ -48,6 +49,8 @@
             <div id="infoBoxTopLeftDivider"></div>
             <div id="infoBoxTopLeftSpecific">Take the Pip-Boy 3000 from the overseer</div>
         </div>
+		<div id="youWon">You Won</div>
+		<div id="youDied">You died. Game over</div>
         <img id="inventoryButton" class="pointerCursor" src="./inventoryIcon.png" alt="x">
         <div id="pipBoy">
             <img id="pipBoyPhoto" src="pipBoy.png" alt="pipBoy">
@@ -130,6 +133,12 @@ function addItemToInventory(element) {
 function changeBI(element, link) { //change background image
     element.style.backgroundImage = link;
 };
+function showOpacityDisplayF(element) {
+    element.style.display = "flex";
+    setTimeout(function(){
+        element.style.opacity = "1";
+    }, 80);
+};
             
             
             
@@ -173,50 +182,79 @@ function changeBI(element, link) { //change background image
             };
 			
 			function finishedDialogueWithAmata() {
-                    changeBI(yourDadEscapedBody, "url(finishedDialogueWithAmata.png)");
-                    showOpacityDisplay(objectPointingArrowYourDadEscapedToBBGun);
-                    showOpacityDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
-                    hideOpacityDisplay(objectPointingArrowGoBack);
-                    hideOpacityDisplay(pickUpItemYourDadEscapedBBGun);
-                    hideOpacityDisplay(pickUpItemYourDadEscapedBaseBallBat);
-                    if (inventory.includes("BB Gun")) {
-                        hideDisplay(objectPointingArrowYourDadEscapedToBBGun);
-                    };
-                    if (inventory.includes("Baseball bat")) {
-                        hideDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
-                    };
-                    if (inventory.includes("BB Gun") && inventory.includes("Baseball bat")) {
-                        showOpacityDisplay(objectPointingArrowYourDadEscapedOutOfTheRoom);
-                    };
-                };
-                function lookingAtBBGun() {
-                    changeBI(yourDadEscapedBody, "url(lookingAtBBGun.png)");
-                    showOpacityDisplay(pickUpItemYourDadEscapedBBGun);
-                    showOpacityDisplay(objectPointingArrowGoBack);
-                    hideOpacityDisplay(objectPointingArrowYourDadEscapedToBBGun);
-                    hideOpacityDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
-                    pickUpItemYourDadEscapedBBGun.onclick = function() {addItemToInventory(this)};
-                    objectPointingArrowGoBack.onclick = function() {finishedDialogueWithAmata()};
-                    setTimeout(function(){
-                        showOpacityDisplay(objectPointingArrowGoBack);
+				changeBI(yourDadEscapedBody, "url(finishedDialogueWithAmata.png)");
+				showOpacityDisplay(objectPointingArrowYourDadEscapedToBBGun);
+				showOpacityDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
+				showOpacityDisplay(objectPointingArrowYourDadEscapedGoBackToSleep);
+				hideOpacityDisplay(objectPointingArrowGoBack);
+				hideOpacityDisplay(pickUpItemYourDadEscapedBBGun);
+				hideOpacityDisplay(pickUpItemYourDadEscapedBaseBallBat);
+				objectPointingArrowYourDadEscapedGoBackToSleep.onmouseover = function(){
+					showDisplay(infoBoxTopLeft);
+					infoBoxTopLeftSpecific.innerHTML = "Go back to sleep";
+				};
+				objectPointingArrowYourDadEscapedGoBackToSleep.onmouseout = function(){
+					hideDisplay(infoBoxTopLeft);
+				};
+				objectPointingArrowYourDadEscapedOutOfTheRoom.onmouseover = function(){
+					showDisplay(infoBoxTopLeft);
+					infoBoxTopLeftSpecific.innerHTML = "Go to the next room";
+				};
+				objectPointingArrowYourDadEscapedOutOfTheRoom.onmouseout = function(){
+					hideDisplay(infoBoxTopLeft);
+				};
+				if (inventory.includes("BB Gun")) {
+					hideDisplay(objectPointingArrowYourDadEscapedToBBGun);
+				};
+				if (inventory.includes("Baseball bat")) {
+					hideDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
+				};
+				if (inventory.includes("BB Gun") && inventory.includes("Baseball bat")) {
+					showOpacityDisplay(objectPointingArrowYourDadEscapedOutOfTheRoom);
+				};
+				objectPointingArrowYourDadEscapedGoBackToSleep.onclick = function() {
+					hideOpacityDisplay(this);
+					hideOpacityDisplay(objectPointingArrowYourDadEscapedToBBGun);
+					hideOpacityDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
+					changeBI(yourDadEscapedBody, "url(black.jpg)");
+					setTimeout(function(){
+						infoBoxTopLeftSpecific.innerHTML = "The guards found you and killed you";
+						showOpacityDisplay(infoBoxTopLeft);
+					}, 900);
+					showOpacityDisplay(youDied);
+					hideOpacityDisplay(inventoryButton);
+				}
+			};
+			function lookingAtBBGun() {
+				changeBI(yourDadEscapedBody, "url(lookingAtBBGun.png)");
+				showOpacityDisplay(pickUpItemYourDadEscapedBBGun);
+				showOpacityDisplay(objectPointingArrowGoBack);
+				hideOpacityDisplay(objectPointingArrowYourDadEscapedToBBGun);
+				hideOpacityDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
+				hideOpacityDisplay(objectPointingArrowYourDadEscapedGoBackToSleep);
+				pickUpItemYourDadEscapedBBGun.onclick = function() {addItemToInventory(this)};
+				objectPointingArrowGoBack.onclick = function() {finishedDialogueWithAmata()};
+				setTimeout(function(){
+					showOpacityDisplay(objectPointingArrowGoBack);
 //                        showOpacityDisplay(pickUpItemYourDadEscapedBBGun);
-                        //this is a bug fix for for when the user clicks too fast on the arrow that he skips the animation and because of that it doesn't show the elements
-                    }, 1000);
-                };
-                function lookingAtBaseBallBat() {
-                    changeBI(yourDadEscapedBody, "url(lookingAtBaseBallBat.png)");
-                    showOpacityDisplay(pickUpItemYourDadEscapedBaseBallBat);
-                    showOpacityDisplay(objectPointingArrowGoBack);
-                    hideOpacityDisplay(objectPointingArrowYourDadEscapedToBBGun);
-                    hideOpacityDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
-                    pickUpItemYourDadEscapedBaseBallBat.onclick = function() {addItemToInventory(this)};
-                    objectPointingArrowGoBack.onclick = function() {finishedDialogueWithAmata()};
-                    setTimeout(function(){
-                        showOpacityDisplay(objectPointingArrowGoBack);
+					//this is a bug fix for for when the user clicks too fast on the arrow that he skips the animation and because of that it doesn't show the elements
+				}, 1000);
+			};
+			function lookingAtBaseBallBat() {
+				changeBI(yourDadEscapedBody, "url(lookingAtBaseBallBat.png)");
+				showOpacityDisplay(pickUpItemYourDadEscapedBaseBallBat);
+				showOpacityDisplay(objectPointingArrowGoBack);
+				hideOpacityDisplay(objectPointingArrowYourDadEscapedToBBGun);
+				hideOpacityDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
+				hideOpacityDisplay(objectPointingArrowYourDadEscapedGoBackToSleep);
+				pickUpItemYourDadEscapedBaseBallBat.onclick = function() {addItemToInventory(this)};
+				objectPointingArrowGoBack.onclick = function() {finishedDialogueWithAmata()};
+				setTimeout(function(){
+					showOpacityDisplay(objectPointingArrowGoBack);
 //                        showOpacityDisplay(pickUpItemYourDadEscapedBaseBallBat);
-                        //this is a bug fix for for when the user clicks too fast on the arrow that he skips the animation and because of that it doesn't show the elements
-                    }, 1000);
-                };
+					//this is a bug fix for for when the user clicks too fast on the arrow that he skips the animation and because of that it doesn't show the elements
+				}, 1000);
+			};
             function skipYourDadEscapedBody() {
                     hideOpacityDisplay(dialogueContainer);
                     hideOpacityDisplay(dialogueReadButton);
@@ -301,15 +339,14 @@ function changeBI(element, link) { //change background image
 			function outOfTheVault() {
 				hideOpacityDisplay(escapeTheVaultBody);
                 showOpacityDisplay(outOfTheVaultBody);
+				changeBI(outOfTheVaultBody, "url(white.jpg)");
 				showOpacity(infoBoxTopLeft);
-				setTimeout(function(){
-                    changeBI(outOfTheVaultBody, "url(white.jpg)");
-                }, 800);
 				setTimeout(function(){
                     changeBI(outOfTheVaultBody, "url(outOfTheVault.png)");
 					showOpacityDisplay(objectPointingArrowOutOfTheVaultBodyToVault112);
 					showOpacityDisplay(objectPointingArrowOutOfTheVaultBodyToDangerousWasteland);
 					showOpacity(inventoryButton);
+					changeBI(body, "url(black.jpg)");
                 }, 2000);
 				objectPointingArrowOutOfTheVaultBodyToVault112.onmouseover = function(){
 					showDisplay(infoBoxTopLeft);
@@ -341,36 +378,38 @@ function changeBI(element, link) { //change background image
 			function youFoundYourDadVault112() {
 				changeBI(body, "url(black.jpg)");
 				hideOpacityDisplay(outOfTheVaultBody);
-                showOpacityDisplay(youFoundYourDadVault112Body);
+                showOpacityDisplayF(youFoundYourDadVault112Body);
 				setTimeout(function(){
                     changeBI(youFoundYourDadVault112Body, "url(youFoundYourDadVault112.png)");
 					showOpacity(inventoryButton);
 					showOpacityDisplay(infoBoxTopLeft);
 					infoBoxTopLeftSpecific.innerHTML = "You found your dad";
-                }, 800);
+                }, 1000);
 				setTimeout(function(){
-                    changeBI(meetDeathClawYouFuckedUpBody, "url(black.jpg)");
+                    changeBI(youFoundYourDadVault112Body, "url(black.jpg)");
 					hideOpacityDisplay(infoBoxTopLeft);
 					showOpacityDisplay(youWon);
-                }, 2800);
+					hideOpacityDisplay(inventoryButton);
+                }, 3800);
 			};
 			
 			/*///---<<<begin new level (meetDeathClawYouFuckedUp)--->>>///*/
 			function meetDeathClawYouFuckedUp() {
 				changeBI(body, "url(black.jpg)");
 				hideOpacityDisplay(outOfTheVaultBody);
-                showOpacityDisplay(meetDeathClawYouFuckedUpBody);
+                showOpacityDisplayF(meetDeathClawYouFuckedUpBody);
 				setTimeout(function(){
                     changeBI(meetDeathClawYouFuckedUpBody, "url(meetDeathClawYouFuckedUp.png)");
 					showOpacity(inventoryButton);
 					showOpacityDisplay(infoBoxTopLeft);
 					infoBoxTopLeftSpecific.innerHTML = "You Fucked Up. You found a death claw that will kill you ";
-                }, 800);
+                }, 1000);
 				setTimeout(function(){
                     changeBI(meetDeathClawYouFuckedUpBody, "url(black.jpg)");
 					hideOpacityDisplay(infoBoxTopLeft);
 					showOpacityDisplay(youDied);
-                }, 2800);
+					hideOpacityDisplay(inventoryButton);
+                }, 4000);
 			};
 			
         </script>
