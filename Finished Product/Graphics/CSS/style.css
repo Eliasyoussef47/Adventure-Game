@@ -36,26 +36,6 @@ body {
     opacity: 0;
 }
 
-#yourDadEscapedBody {
-    background-image: url(black.jpg);
-}
-
-#escapeTheVaultBody {
-    background-image: url(black.jpg);
-}
-
-#outOfTheVaultBody {
-	background-image: url(black.jpg);
-}
-
-#youFoundYourDadVault112Body {
-	background-image: url(black.jpg);
-}
-
-#meetDeathClawYouFuckedUpBody {
-	background-image: url(black.jpg);
-}
-
 .afterXYears {
     background-color: white;
     display: flex;
@@ -160,12 +140,12 @@ body {
     BORDER: 3PX SOLID #34c16e;
     position: absolute;
     bottom: 2%;
-    display: flex;
     align-items: center;
     justify-content: center;
     font-family: sans-serif;
     box-sizing: border-box;
     opacity: 0;
+	display: none;
 }
 
 .pointerCursor {
@@ -683,6 +663,7 @@ button:focus {
     text-transform: uppercase;
     font-size: 90px;
     opacity: 0;
+	cursor: default;
 }
     
 #vaultBoy {
@@ -732,6 +713,7 @@ button:focus {
 #afterNineYears {
     background-color: white;
     display: flex;
+	opacity: 0;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -740,7 +722,7 @@ button:focus {
     position: absolute;
     text-transform: uppercase;
     font-size: 90px;
-    opacity: 0;
+	cursor: default;
 }
 
 #pipBoy3000 {
@@ -752,28 +734,29 @@ button:focus {
 }
 
 #yourDadEscapedBody {
-    background-image: url(black.jpg);
+    background-image: url('/../Background Images/black.jpg');
 }
 
 #escapeTheVaultBody {
-    background-image: url(black.jpg);
+    background-image: url('/../Background Images/black.jpg');
 }
 
 #outOfTheVaultBody {
-	background-image: url(black.jpg);
+	background-image: url('/../Background Images/black.jpg');
 }
 
 #youFoundYourDadVault112Body {
-	background-image: url(black.jpg);
+	background-image: url('/../Background Images/black.jpg');
 }
 
 #meetDeathClawYouFuckedUpBody {
-	background-image: url(black.jpg);
+	background-image: url('/../Background Images/black.jpg');
 }
 
-.afterXYears {
+#afterNineYears2 {
     background-color: white;
     display: flex;
+	opacity: 0;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -782,8 +765,7 @@ button:focus {
     position: absolute;
     text-transform: uppercase;
     font-size: 90px;
-    opacity: 0;
-    cursor: default;
+	cursor: default;
 }
 
 #pickUpItemYourDadEscapedBBGun {

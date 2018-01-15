@@ -1,9 +1,77 @@
 // JavaScript Document
+var dialogueContainer = document.getElementById("dialogueContainer");
+var dialogueReadButton = document.getElementById("dialogueReadButton");
+var talkerName = document.getElementById("talkerName");
+var objectPointingArrowGoBack = document.getElementById("objectPointingArrowGoBack");
+var infoBoxTopLeft = document.getElementById("infoBoxTopLeft");
+var youWon = document.getElementById("youWon");
+var youDied = document.getElementById("youDied");
+var inventoryButton = document.getElementById("inventoryButton");
+var pipBoy = document.getElementById("pipBoy");
+var inventoryContainer = document.getElementById("inventoryContainer");
+var pleasStandByVideo = document.getElementById("pleasStandByVideo");
+var startMenuBody = document.getElementById("startMenuBody");
+var fallout3Theme = document.getElementById("fallout3Theme");
+var startGameIntroBody = document.getElementById("startGameIntroBody");
+var bosSoldierInFrontOfTheWasteland = document.getElementById("bosSoldierInFrontOfTheWasteland");
+var bethesdaGameStudiosTitle = document.getElementById("bethesdaGameStudiosTitle");
+var bethesdaGameStudiosTitleSpan = document.getElementById("bethesdaGameStudiosTitleSpan");
+var bethesdaGameStudiosTitleSpanElias = document.getElementById("bethesdaGameStudiosTitleSpanElias");
+var fallout3AdventureGameContainer = document.getElementById("fallout3AdventureGameContainer");
+var fallout3AdventureGameTitleStartGameIntro = document.getElementById("fallout3AdventureGameTitleStartGameIntro");
+var warWarNeverChanges = document.getElementById("warWarNeverChanges");
+var vaultTecLogoStartGameIntro = document.getElementById("vaultTecLogoStartGameIntro");
+var vaultTecLogoTitle = document.getElementById("vaultTecLogoTitle");
+var vaultTecLogoSlogan = document.getElementById("vaultTecLogoSlogan");
+var storyExplanationBody = document.getElementById("storyExplanationBody");
+var storyExplanationReadButton = document.getElementById("storyExplanationReadButton");
+var justBornBody = document.getElementById("justBornBody");
+var genderChoiceMale = document.getElementById("genderChoiceMale");
+var chooseGenderContainer = document.getElementById("chooseGenderContainer");
+var chooseNameContainer = document.getElementById("chooseNameContainer");
+var genderChoiceFemale = document.getElementById("genderChoiceFemale");
+var genderChoiceApache = document.getElementById("genderChoiceApache");
+var submitChosenName = document.getElementById("submitChosenName");
+var nameInput = document.getElementById("nameInput");
+var babyStepsBody = document.getElementById("babyStepsBody");
+var afterOneYear = document.getElementById("afterOneYear");
+var playpenSelectArea = document.getElementById("playpenSelectArea");
+var infoBoxTopLeftDivider = document.getElementById("infoBoxTopLeftDivider");
+var infoBoxTopLeftGeneral = document.getElementById("infoBoxTopLeftGeneral");
+var infoBoxTopLeftSpecific = document.getElementById("infoBoxTopLeftSpecific");
+var objectPointingArrow = document.getElementById("objectPointingArrow");
+var vaultBoy = document.getElementById("vaultBoy");
+var youDontHaveTheItemContainer = document.getElementById("youDontHaveTheItemContainer");
+var youDontHaveTheItemOkButton = document.getElementById("youDontHaveTheItemOkButton");
+var happy10thBirthdayBody = document.getElementById("happy10thBirthdayBody");
+var afterNineYears = document.getElementById("afterNineYears");
+var pipBoy3000 = document.getElementById("pipBoy3000");
+var yourDadEscapedBody = document.getElementById("yourDadEscapedBody");
+var afterNineYears2 = document.getElementById("afterNineYears2");
+var objectPointingArrowYourDadEscapedToBBGun = document.getElementById("objectPointingArrowYourDadEscapedToBBGun");
+var objectPointingArrowYourDadEscapedToBaseBallBat = document.getElementById("objectPointingArrowYourDadEscapedToBaseBallBat");
+var objectPointingArrowYourDadEscapedOutOfTheRoom = document.getElementById("objectPointingArrowYourDadEscapedOutOfTheRoom");
+var objectPointingArrowYourDadEscapedGoBackToSleep = document.getElementById("objectPointingArrowYourDadEscapedGoBackToSleep");
+var pickUpItemYourDadEscapedBBGun = document.getElementById("pickUpItemYourDadEscapedBBGun");
+var pickUpItemYourDadEscapedBaseBallBat = document.getElementById("pickUpItemYourDadEscapedBaseBallBat");
+var escapeTheVaultBody = document.getElementById("escapeTheVaultBody");
+var objectPointingArrowEscapeTheVaultToUnderTheOverseerOffice = document.getElementById("objectPointingArrowEscapeTheVaultToUnderTheOverseerOffice");
+var escapeTheVaultToUnderTheOverseerOfficeDoorSelectArea = document.getElementById("escapeTheVaultToUnderTheOverseerOfficeDoorSelectArea");
+var Radroach = document.getElementById("Radroach");
+var vaultExitRoomDoorSwitchSelectArea = document.getElementById("vaultExitRoomDoorSwitchSelectArea");
+var vaultDoorControlPanelSwitchSelectArea = document.getElementById("vaultDoorControlPanelSwitchSelectArea");
+var objectPointingArrowEscapeTheVaultInVaultExitTunnelToOutside = document.getElementById("objectPointingArrowEscapeTheVaultInVaultExitTunnelToOutside");
+var body = document.getElementById("body");
+var outOfTheVaultBody = document.getElementById("outOfTheVaultBody");
+
+
+
 
 //inventory code
 var inventory = [];
-document.getElementById("inventoryButton").onclick = function(){
-    if (inventoryContainer.style.opacity === "1") {
+inventoryButton.onclick = function(){
+	"use strict";
+	if (inventoryContainer.style.opacity === "1") {
         hideOpacityDisplay(pipBoy);
         hideOpacity(inventoryContainer);
         inventoryContainer.innerHTML = "";
@@ -22,17 +90,18 @@ document.getElementById("inventoryButton").onclick = function(){
             div.appendChild(img);
             div.appendChild(p);
             inventoryContainer.appendChild(div);
-        };
-    };
+        }
+    }
 };
 //player info
-var name = "";
+var playerName = "";
 var gender = "";
 var talkerText = [];//the text that the speaker says
 var talkerTextCount = 0;
 //dialogue system
 var afterFinishedDialogue ;
-dialogueReadButton.onclick = function() {
+document.getElementById("dialogueReadButton").onclick = function() {
+	"use strict";
     talkerTextCount++;
     if(talkerTextCount >= talkerText.length) {
         hideOpacityDisplay(dialogueContainer);
@@ -41,48 +110,58 @@ dialogueReadButton.onclick = function() {
         afterFinishedDialogue();
     } else {
         dialogueContainer.innerHTML = talkerText[talkerTextCount];
-    };
+    }
 };
 function hideOpacity(element) {
+	"use strict";
     element.style.opacity = "0";
-};
+}
 function hideDisplay(element) {
+	"use strict";
     element.style.display = "none";
-};
+}
 function hideOpacityDisplay(element) {
+	"use strict";
     element.style.opacity = "0";
     setTimeout(function(){
         element.style.display = "none";
     }, 800);
-};
+}
 function showOpacity(element) {
+	"use strict";
     element.style.opacity = "1";
-};
+}
 function showDisplay(element) {
+	"use strict";
     element.style.display = "block";
-};
+}
 function showOpacityDisplay(element) {
+	"use strict";
     element.style.display = "block";
     setTimeout(function(){
         element.style.opacity = "1";
     }, 80);
-};
+}
 function addItemToInventory(element) {
+	"use strict";
     element.style.display = "none";
     var itemName = element.title;
     inventory.push(itemName);
-};
+}
 function changeBI(element, link) { //change background image
+	"use strict";
     element.style.backgroundImage = link;
-};
+}
 function showOpacityDisplayF(element) {
+	"use strict";
     element.style.display = "flex";
     setTimeout(function(){
         element.style.opacity = "1";
     }, 80);
-};
+}
 
 setTimeout(function() {
+	"use strict";
 	pleasStandByVideo.style.opacity = "0";
 }, 5000);
 
@@ -95,18 +174,20 @@ setTimeout(function() {
 /*///---<<<begin>>>---///*//*///---<<<begin>>>---///*//*///---<<<begin>>>---///*//*///---<<<begin>>>---///*//*///---<<<begin>>>---///*//*///---<<<begin>>>---///*/
 pleasStandByVideoF();
 function pleasStandByVideoF() {
+	"use strict";
 	setTimeout(function(){
 		startMenu();
 	}, 4999);
-};
+}
 /*///---<<<begin new level (startMenu)>>>---///*//*///---<<<begin new level (startMenu)>>>---///*//*///---<<<begin new level (startMenu)>>>---///*/
 function startMenu() {
+	"use strict";
 	hideOpacityDisplay(pleasStandByVideo);
 	showOpacityDisplay(startMenuBody);
 	fallout3Theme.play();
 	var imageUrl = ["url('Graphics/Background Images/FO3_loading_screen1.jpg')", "url('Graphics/Background Images/FO3_loading_screen2.jpg')", "url('Graphics/Background Images/FO3_loading_screen3.jpg')", "url('Graphics/Background Images/FO3_loading_screen4.jpg')", "url('Graphics/Background Images/FO3_loading_screen5.jpg')"];
 	var imageCount = "1";
-	var backgroundImage = window.setInterval(function() {
+	window.setInterval(function() {
 		startMenuBody.style.backgroundImage=imageUrl[imageCount];
 		imageCount++;
 		if (imageCount > 4) {
@@ -124,10 +205,11 @@ function startMenu() {
 	document.getElementById("startGameButton").onclick = function() {
 		startGameIntro();
 		fallout3Theme.pause();
-	}
-};
+	};
+}
 /*///---<<<begin new level (startGameIntro)>>>---///*//*///---<<<begin new level (startGameIntro)>>>---///*//*///---<<<begin new level (startGameIntro)>>>---///*/
 function startGameIntro() {
+	"use strict";
 	hideOpacityDisplay(startMenuBody);
 	showOpacityDisplayF(startGameIntroBody);
 	setTimeout(function(){ bosSoldierInFrontOfTheWasteland.style.opacity = (1); }, 500);
@@ -178,6 +260,7 @@ function startGameIntro() {
 /*///---<<<begin new level (storyExplanation)>>>---///*//*///---<<<begin new level (storyExplanation)>>>---///*//*///---<<<begin new level (storyExplanation)>>>---///*/
 
 function storyExplanation() {
+	"use strict";
 	hideOpacityDisplay(startGameIntroBody);
 	showOpacityDisplayF(storyExplanationBody);
 	storyExplanationReadButton.onclick = function() {
@@ -188,6 +271,7 @@ function storyExplanation() {
 /*///---<<<begin new level (justBorn)>>>---///*//*///---<<<begin new level (justBorn)>>>---///*//*///---<<<begin new level (justBorn)>>>---///*/
 
 function justBorn() {
+	"use strict";
 	hideOpacityDisplay(storyExplanationBody);
 	showOpacityDisplayF(justBornBody);
 	genderChoiceMale.onclick = function() {
@@ -206,7 +290,7 @@ function justBorn() {
 		chooseNameContainer.style.display = "flex";
 	};
 	submitChosenName.onclick = function() {
-		name = nameInput.value;
+		playerName = nameInput.value;
 		babySteps();
 	};
 }
@@ -214,6 +298,7 @@ function justBorn() {
 /*///---<<<begin new level (babySteps)>>>---///*//*///---<<<begin new level (babySteps)>>>---///*//*///---<<<begin new level (babySteps)>>>---///*/ 
 
 function babySteps() {
+	"use strict";
 	hideOpacityDisplay(pleasStandByVideo);
 	hideOpacityDisplay(startMenuBody);
 	hideOpacityDisplay(startGameIntroBody);
@@ -314,6 +399,7 @@ function babySteps() {
 /*///---<<<begin new level (happy10thBirthday)>>>---///*//*///---<<<begin new level (happy10thBirthday)>>>---///*//*///---<<<begin new level (happy10thBirthday)>>>---///*/
 
 function happy10thBirthday() {
+	"use strict";
 	hideOpacityDisplay(pleasStandByVideo);
 	hideOpacityDisplay(startMenuBody);
 	hideOpacityDisplay(startGameIntroBody);
@@ -322,8 +408,8 @@ function happy10thBirthday() {
 	hideOpacityDisplay(babyStepsBody);
 	showOpacityDisplayF(happy10thBirthdayBody);
 	inventory = [];
-	var talkerText = ['Happy birthday ' + name + ', you are a ten years old ' + gender +', and in vault 101 when you turn ten you get your very own Pip-Boy 3000.'];
-	var talkerTextCount = 0;
+	talkerText = ['Happy birthday ' + playerName + ', you are a ten years old ' + gender +', and in vault 101 when you turn ten you get your very own Pip-Boy 3000.'];
+	talkerTextCount = 0;
 	setTimeout(function(){
 		afterNineYears.style.opacity = "1";
 	}, 1000);
@@ -351,7 +437,7 @@ function happy10thBirthday() {
 			hideOpacityDisplay(dialogueContainer);
 			hideOpacityDisplay(dialogueReadButton);
 			hideOpacityDisplay(infoBoxTopLeft);
-			hideOpacityDisplay(inventoryButton);
+			hideOpacityDisplay(document.getElementById("inventoryButton"));
 			yourDadEscaped();
 		}, 1000);
 	};
@@ -361,41 +447,51 @@ function happy10thBirthday() {
 
 function yourDadEscaped() {
 	//level start
-	setTimeout(function(){
+	"use strict";
+	hideOpacityDisplay(pleasStandByVideo);
+		hideOpacityDisplay(startMenuBody);
+		hideOpacityDisplay(startGameIntroBody);
+		hideOpacityDisplay(storyExplanationBody);
+		hideOpacityDisplay(justBornBody);
+		hideOpacityDisplay(babyStepsBody);
+		hideOpacityDisplay(happy10thBirthdayBody);
 		showOpacityDisplay(yourDadEscapedBody);
-		showOpacity(afterNineYears);
+	setTimeout(function(){
+		showOpacityDisplayF(afterNineYears2);
 	}, 1000);
 	setTimeout(function(){
-		hideOpacityDisplay(afterNineYears);
+		hideOpacityDisplay(afterNineYears2);
 	}, 3000);
 	setTimeout(function(){
-		//dialogueWithAmata function
-		changeBI(yourDadEscapedBody, "url('Graphics/Background Images/getPipboyFromOverseer.png')");
+		//dialogueWithAmata function	
+		changeBI(yourDadEscapedBody, "url('Graphics/Background Images/dialogueWithAmata.png')");
 		talkerTextCount = 0;
-		talkerText.push(
-			"Wake up " + name, 
-			"Your dad has escaped the vault", 
+		talkerText = [
+			"Wake up " + playerName, 
+			", Your dad has escaped the vault", 
 			"Quick you've got to escape too before the guards get you", 
 			"Take whatever you need and go"
-		);
-		dialogueContainer.innerHTML = talkerText[talkerTextCount];
-		showOpacityDisplay(dialogueContainer);
+		];
+		document.getElementById("dialogueContainer").innerHTML = talkerText[talkerTextCount];
+		showOpacityDisplay(document.getElementById("dialogueContainer"));
+		showOpacityDisplay(dialogueReadButton);
 		showOpacityDisplay(talkerName);
 		talkerName.innerHTML = "Amata";
 		showOpacityDisplay(dialogueReadButton);
-		showOpacity(inventoryButton);
+		showOpacityDisplay(document.getElementById("inventoryButton"));
 		afterFinishedDialogue = finishedDialogueWithAmata;
 	}, 4000);
-	objectPointingArrowYourDadEscapedToBBGun.onclick = function() {lookingAtBBGun()};
-	objectPointingArrowYourDadEscapedToBaseBallBat.onclick = function() {lookingAtBaseBallBat()};
+	objectPointingArrowYourDadEscapedToBBGun.onclick = function() {lookingAtBBGun();};
+	objectPointingArrowYourDadEscapedToBaseBallBat.onclick = function() {lookingAtBaseBallBat();};
 	objectPointingArrowYourDadEscapedOutOfTheRoom.onclick = function() {
 		hideOpacityDisplay(this);
-		hideOpacity(inventoryButton);
+		hideOpacity(document.getElementById("inventoryButton"));
 		escapeTheVault();
 	};
-};
+}
 
 function finishedDialogueWithAmata() {
+	"use strict";
 	changeBI(yourDadEscapedBody, "url(finishedDialogueWithAmata.png)");
 	showOpacityDisplay(objectPointingArrowYourDadEscapedToBBGun);
 	showOpacityDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
@@ -419,85 +515,89 @@ function finishedDialogueWithAmata() {
 	};
 	if (inventory.includes("BB Gun")) {
 		hideDisplay(objectPointingArrowYourDadEscapedToBBGun);
-	};
+	}
 	if (inventory.includes("Baseball bat")) {
 		hideDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
-	};
+	}
 	if (inventory.includes("BB Gun") && inventory.includes("Baseball bat")) {
 		showOpacityDisplay(objectPointingArrowYourDadEscapedOutOfTheRoom);
-	};
+	}
 	objectPointingArrowYourDadEscapedGoBackToSleep.onclick = function() {
 		hideOpacityDisplay(this);
 		hideOpacityDisplay(objectPointingArrowYourDadEscapedToBBGun);
 		hideOpacityDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
-		changeBI(yourDadEscapedBody, "url(black.jpg)");
+		changeBI(yourDadEscapedBody, "url('Graphics/Background Images/black.jpg')");
 		setTimeout(function(){
 			infoBoxTopLeftSpecific.innerHTML = "The guards found you and killed you";
 			showOpacityDisplay(infoBoxTopLeft);
 		}, 900);
 		showOpacityDisplay(youDied);
-		hideOpacityDisplay(inventoryButton);
-	}
-};
+		hideOpacityDisplay(document.getElementById("inventoryButton"));
+	};
+}
 function lookingAtBBGun() {
+	"use strict";
 	changeBI(yourDadEscapedBody, "url(lookingAtBBGun.png)");
 	showOpacityDisplay(pickUpItemYourDadEscapedBBGun);
 	showOpacityDisplay(objectPointingArrowGoBack);
 	hideOpacityDisplay(objectPointingArrowYourDadEscapedToBBGun);
 	hideOpacityDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
 	hideOpacityDisplay(objectPointingArrowYourDadEscapedGoBackToSleep);
-	pickUpItemYourDadEscapedBBGun.onclick = function() {addItemToInventory(this)};
-	objectPointingArrowGoBack.onclick = function() {finishedDialogueWithAmata()};
+	pickUpItemYourDadEscapedBBGun.onclick = function() {addItemToInventory(this);};
+	objectPointingArrowGoBack.onclick = function() {finishedDialogueWithAmata();};
 	setTimeout(function(){
 		showOpacityDisplay(objectPointingArrowGoBack);
 //showOpacityDisplay(pickUpItemYourDadEscapedBBGun);
 //this is a bug fix for for when the user clicks too fast on the arrow that he skips the animation and because of that it doesn't show the elements
 	}, 1000);
-};
+}
 function lookingAtBaseBallBat() {
+	"use strict";
 	changeBI(yourDadEscapedBody, "url(lookingAtBaseBallBat.png)");
 	showOpacityDisplay(pickUpItemYourDadEscapedBaseBallBat);
 	showOpacityDisplay(objectPointingArrowGoBack);
 	hideOpacityDisplay(objectPointingArrowYourDadEscapedToBBGun);
 	hideOpacityDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
 	hideOpacityDisplay(objectPointingArrowYourDadEscapedGoBackToSleep);
-	pickUpItemYourDadEscapedBaseBallBat.onclick = function() {addItemToInventory(this)};
-	objectPointingArrowGoBack.onclick = function() {finishedDialogueWithAmata()};
+	pickUpItemYourDadEscapedBaseBallBat.onclick = function() {addItemToInventory(this);};
+	objectPointingArrowGoBack.onclick = function() {finishedDialogueWithAmata();};
 	setTimeout(function(){
 		showOpacityDisplay(objectPointingArrowGoBack);
 //showOpacityDisplay(pickUpItemYourDadEscapedBaseBallBat);
 //this is a bug fix for for when the user clicks too fast on the arrow that he skips the animation and because of that it doesn't show the elements
 	}, 1000);
-};
-function skipYourDadEscapedBody() {
-		hideOpacityDisplay(dialogueContainer);
-		hideOpacityDisplay(dialogueReadButton);
-		hideOpacityDisplay(talkerName);
-		inventory.push("BB Gun", "Baseball bat");
-		changeBI(yourDadEscapedBody, "url(finishedDialogueWithAmata.png)");
-		hideOpacityDisplay(objectPointingArrowGoBack);
-		hideOpacityDisplay(pickUpItemYourDadEscapedBBGun);
-		hideOpacityDisplay(pickUpItemYourDadEscapedBaseBallBat);
-		if (inventory.includes("BB Gun")) {
-			hideDisplay(objectPointingArrowYourDadEscapedToBBGun);
-		};
-		if (inventory.includes("Baseball bat")) {
-			hideDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
-		};
-		if (inventory.includes("BB Gun") && inventory.includes("Baseball bat")) {
-			showOpacityDisplay(objectPointingArrowYourDadEscapedOutOfTheRoom);
-		};
-	};
+}
+/*function skipYourDadEscapedBody() {
+	"use strict";
+	hideOpacityDisplay(document.getElementById("dialogueContainer"));
+	hideOpacityDisplay(document.getElementById("dialogueReadButton"));
+	hideOpacityDisplay(document.getElementById("talkerName"));
+	inventory.push("BB Gun", "Baseball bat");
+	changeBI(yourDadEscapedBody, "url(finishedDialogueWithAmata.png)");
+	hideOpacityDisplay(objectPointingArrowGoBack);
+	hideOpacityDisplay(pickUpItemYourDadEscapedBBGun);
+	hideOpacityDisplay(pickUpItemYourDadEscapedBaseBallBat);
+	if (inventory.includes("BB Gun")) {
+		hideDisplay(objectPointingArrowYourDadEscapedToBBGun);
+	}
+	if (inventory.includes("Baseball bat")) {
+		hideDisplay(objectPointingArrowYourDadEscapedToBaseBallBat);
+	}
+	if (inventory.includes("BB Gun") && inventory.includes("Baseball bat")) {
+		showOpacityDisplay(objectPointingArrowYourDadEscapedOutOfTheRoom);
+	}
+}/*
 
-/*///---<<<begin new level (escapeTheVault)--->>>///*/
+/*///---<<<begin new level (escapeTheVault)>>>---///*//*///---<<<begin new level (escapeTheVault)>>>---///*//*///---<<<begin new level (escapeTheVault)>>>---///*/
 function escapeTheVault() {
 	//level start
+	"use strict";
 	hideOpacityDisplay(yourDadEscapedBody);
 	showOpacityDisplay(escapeTheVaultBody);
 	talkerTextCount = 0;
 	setTimeout(function(){
 		changeBI(escapeTheVaultBody, "url(inOverseerOffice.png)");
-		showOpacity(inventoryButton);
+		showOpacity(document.getElementById("inventoryButton"));
 		showOpacityDisplay(objectPointingArrowEscapeTheVaultToUnderTheOverseerOffice);
 		objectPointingArrowEscapeTheVaultToUnderTheOverseerOffice.onclick = function() {
 			underTheOverseerOffice();
@@ -511,7 +611,7 @@ function escapeTheVault() {
 		escapeTheVaultToUnderTheOverseerOfficeDoorSelectArea.onclick = function() {
 			vaultExitRoom();
 		};
-	};
+	}
 	function vaultExitRoom() {
 		hideOpacityDisplay(escapeTheVaultToUnderTheOverseerOfficeDoorSelectArea);
 		changeBI(escapeTheVaultBody, "url(vaultExitRoom.png)");
@@ -526,7 +626,7 @@ function escapeTheVault() {
 				vaultDoorInFrontOfControlPanel();
 			};
 		};
-	};
+	}
 	function vaultDoorInFrontOfControlPanel() {
 		hideOpacityDisplay(vaultExitRoomDoorSwitchSelectArea);
 		hideOpacityDisplay(infoBoxTopLeft);
@@ -535,7 +635,7 @@ function escapeTheVault() {
 		vaultDoorControlPanelSwitchSelectArea.onclick = function() {
 			vaultExitTunnel();
 		};
-	};
+	}
 	function vaultExitTunnel() {
 		hideOpacityDisplay(vaultDoorControlPanelSwitchSelectArea);
 		changeBI(escapeTheVaultBody, "url(vaultExitTunnel.png)");
@@ -546,11 +646,12 @@ function escapeTheVault() {
 			changeBI(body, "url(white.jpg)");
 			outOfTheVault();
 		};
-	};
-};
+	}
+}
 
-/*///---<<<begin new level (outOfTheVault)--->>>///*/
+/*///---<<<begin new level (outOfTheVault)>>>---///*//*///---<<<begin new level (outOfTheVault)>>>---///*//*///---<<<begin new level (outOfTheVault)>>>---///*/
 function outOfTheVault() {
+	"use strict";
 	hideOpacityDisplay(escapeTheVaultBody);
 	showOpacityDisplay(outOfTheVaultBody);
 	changeBI(outOfTheVaultBody, "url(white.jpg)");
@@ -560,7 +661,7 @@ function outOfTheVault() {
 		showOpacityDisplay(objectPointingArrowOutOfTheVaultBodyToVault112);
 		showOpacityDisplay(objectPointingArrowOutOfTheVaultBodyToDangerousWasteland);
 		showOpacity(inventoryButton);
-		changeBI(body, "url(black.jpg)");
+		changeBI(body, "url('Graphics/Background Images/black.jpg')");
 	}, 2000);
 	objectPointingArrowOutOfTheVaultBodyToVault112.onmouseover = function(){
 		showDisplay(infoBoxTopLeft);
@@ -586,11 +687,12 @@ function outOfTheVault() {
 		hideOpacity(inventoryButton);
 		meetDeathClawYouFuckedUp();
 	};
-};
+}
 
-/*///---<<<begin new level (youFoundYourDadVault112)--->>>///*/
+/*///---<<<begin new level (youFoundYourDadVault112)>>>---///*//*///---<<<begin new level (youFoundYourDadVault112)>>>---///*//*///---<<<begin new level (youFoundYourDadVault112)>>>---///*/
 function youFoundYourDadVault112() {
-	changeBI(body, "url(black.jpg)");
+	"use strict";
+	changeBI(body, "url('Graphics/Background Images/black.jpg')");
 	hideOpacityDisplay(outOfTheVaultBody);
 	showOpacityDisplayF(youFoundYourDadVault112Body);
 	setTimeout(function(){
@@ -600,16 +702,17 @@ function youFoundYourDadVault112() {
 		infoBoxTopLeftSpecific.innerHTML = "You found your dad";
 	}, 1000);
 	setTimeout(function(){
-		changeBI(youFoundYourDadVault112Body, "url(black.jpg)");
+		changeBI(youFoundYourDadVault112Body, "url('Graphics/Background Images/black.jpg')");
 		hideOpacityDisplay(infoBoxTopLeft);
 		showOpacityDisplay(youWon);
 		hideOpacityDisplay(inventoryButton);
 	}, 3800);
-};
+}
 
-/*///---<<<begin new level (meetDeathClawYouFuckedUp)--->>>///*/
+/*///---<<<begin new level (meetDeathClawYouFuckedUp)>>>---///*//*///---<<<begin new level (meetDeathClawYouFuckedUp)>>>---///*//*///---<<<begin new level (meetDeathClawYouFuckedUp)>>>---///*/
 function meetDeathClawYouFuckedUp() {
-	changeBI(body, "url(black.jpg)");
+	"use strict";
+	changeBI(body, "url('Graphics/Background Images/black.jpg')");
 	hideOpacityDisplay(outOfTheVaultBody);
 	showOpacityDisplayF(meetDeathClawYouFuckedUpBody);
 	setTimeout(function(){
@@ -619,9 +722,9 @@ function meetDeathClawYouFuckedUp() {
 		infoBoxTopLeftSpecific.innerHTML = "You Fucked Up. You found a death claw that will kill you ";
 	}, 1000);
 	setTimeout(function(){
-		changeBI(meetDeathClawYouFuckedUpBody, "url(black.jpg)");
+		changeBI(meetDeathClawYouFuckedUpBody, "url('Graphics/Background Images/black.jpg')");
 		hideOpacityDisplay(infoBoxTopLeft);
 		showOpacityDisplay(youDied);
 		hideOpacityDisplay(inventoryButton);
 	}, 4000);
-};
+}

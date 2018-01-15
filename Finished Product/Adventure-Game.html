@@ -7,7 +7,7 @@
         <link href="Graphics/CSS/style.css" rel="stylesheet" type="text/css" media="screen">
 		<script src="Javascript/JS.js" type="text/javascript"></script>
     </head>
-    <body onLoad="pleasStandByVideoF()">
+    <body id="body" onLoad="pleasStandByVideoF()">
         <video id="pleasStandByVideo" src="Graphics/Videos/Please Stand By.mp4" preload="auto" autoplay muted></video>
 		
 		<div id="startMenuBody" class="levelBody">
@@ -78,11 +78,11 @@
 		
 		<div id="happy10thBirthdayBody" class="levelBody">
 			<div id="afterNineYears">Nine Years Later</div>
-        	<img id="pipBoy3000" src="Graphics/Other/pipBoy3000.png" alt="PIPBOY">
+        	<img class="pointerCursor" id="pipBoy3000" src="Graphics/Other/pipBoy3000.png" alt="PIPBOY">
 		</div>
 		
 		<div id="yourDadEscapedBody" class="levelBody">
-            <div class="afterXYears">Nine Years Later</div>
+            <div class="afterXYears" id="afterNineYears2">Nine Years Later</div>
             <img id="pickUpItemYourDadEscapedBBGun" class="pickUpItem" title="BB Gun" src="Graphics/Pick Up Items/BB Gun.png" alt="x">
             <img id="pickUpItemYourDadEscapedBaseBallBat" class="pickUpItem" title="Baseball bat"  src="Graphics/Pick Up Items/Baseball bat.png" alt="x">
             <img id="objectPointingArrowYourDadEscapedToBBGun" class="pointerCursor objectPointingArrow" src="Graphics/Other/objectPointingArrow.png" alt="x">
@@ -92,17 +92,17 @@
         </div>
 		
 		<div id="escapeTheVaultBody" class="levelBody">
-            <img id="objectPointingArrowEscapeTheVaultToUnderTheOverseerOffice" class="pointerCursor objectPointingArrow" src="objectPointingArrow.png" alt="x">
+            <img id="objectPointingArrowEscapeTheVaultToUnderTheOverseerOffice" class="pointerCursor objectPointingArrow" src="Graphics/Other/objectPointingArrow.png" alt="x">
 			<div class="selectionArea" id="escapeTheVaultToUnderTheOverseerOfficeDoorSelectArea"></div>
-			<img id="Radroach" class="attackableEnemy" src="Radroach.png" alt="Radroach">
+			<img id="Radroach" class="attackableEnemy" src="Graphics/Other/Radroach.png" alt="Radroach">
 			<div class="selectionArea" id="vaultExitRoomDoorSwitchSelectArea"></div>
 			<div class="selectionArea" id="vaultDoorControlPanelSwitchSelectArea"></div>
-			<img id="objectPointingArrowEscapeTheVaultInVaultExitTunnelToOutside" class="pointerCursor objectPointingArrow" src="objectPointingArrow.png" alt="x">
+			<img id="objectPointingArrowEscapeTheVaultInVaultExitTunnelToOutside" class="pointerCursor objectPointingArrow" src="Graphics/Other/objectPointingArrow.png" alt="x">
         </div>
 		
 		<div id="outOfTheVaultBody"  class="levelBody">
-			<img id="objectPointingArrowOutOfTheVaultBodyToVault112" class="pointerCursor objectPointingArrow" src="objectPointingArrow.png" title="Go to vault 112" alt="x">
-			<img id="objectPointingArrowOutOfTheVaultBodyToDangerousWasteland" class="pointerCursor objectPointingArrow" src="objectPointingArrow.png" title="Explore the dangerous waste land" alt="x">
+			<img id="objectPointingArrowOutOfTheVaultBodyToVault112" class="pointerCursor objectPointingArrow" src="Graphics/Other/objectPointingArrow.png" title="Go to vault 112" alt="x">
+			<img id="objectPointingArrowOutOfTheVaultBodyToDangerousWasteland" class="pointerCursor objectPointingArrow" src="Graphics/Other/objectPointingArrow.png" title="Explore the dangerous waste land" alt="x">
 		</div>
 		
 		<div id="youFoundYourDadVault112Body" class="levelBody">
