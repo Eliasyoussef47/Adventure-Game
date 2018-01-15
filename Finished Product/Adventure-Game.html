@@ -42,6 +42,77 @@
 			</div>
 		</div>
 		
+		<div id="storyExplanationBody" class="levelBody">
+			<div id="storyExplanationContainer">
+				<p>It's the year 2277. 200 years ago the great war begun, all major countries started attacking each other with nuclear bombs and in just 2 hours the world as we knew it was destroyed. Because war, war never changes. Most of humanity faced their death or survived by being outside the bombs radius or by taking shelter in nuclear underground shelters called Vaults.
+				Vaults dwellers would leave the vaults when it was safe outside, except for vault 101, there... Once the door was closed it never opened again, it's here you are born, it's her you will die. War, war never changes.</p>
+				<button id="storyExplanationReadButton">OK</button>
+			</div>
+		</div>
+		
+		<div id="justBornBody" class="levelBody">
+			<img id="justBornScreenShot" src="Graphics/Background Images/justBornScreenShot.png" alt="xxxxx">
+			<div id="chooseGenderContainer">
+				<button class="genderChoices" id="genderChoiceMale">Boy</button>
+				<button class="genderChoices" id="genderChoiceFemale">Girl</button>
+				<button class="genderChoices" id="genderChoiceApache">Apache<br>Helicopter</button>
+			</div>
+			<div id="chooseNameContainer">
+				<p>Choose a name:</p>
+				<input id="nameInput" type="text" placeholder="Name">
+	<!--            <button id="submitChosenName">OK</button>-->
+				<input type="submit" id="submitChosenName" value="OK">
+			</div>
+		</div>
+		
+		<div id="babyStepsBody" class="levelBody">
+			<div class="selectionArea pointerCursor" id="playpenSelectArea"></div>
+			<img id="objectPointingArrow" class="objectPointingArrowToTheChest pointerCursor" src="Graphics/Other/objectPointingArrow.png" alt="xxxxx">
+			<img id="vaultBoy" src="Graphics/Pick Up Items/vaultBoy.PNG" class="pointerCursor" alt="x"/>
+			<div id="afterOneYear"><p>One Year later</p></div>
+			<div id="youDontHaveTheItemContainer">
+				<p id="youDontHaveTheItemText">You don't have the required item.</p>
+				<button id="youDontHaveTheItemOkButton">OK</button>
+			</div>
+		</div>
+		
+		<div id="happy10thBirthdayBody" class="levelBody">
+			<div id="afterNineYears">Nine Years Later</div>
+        	<img id="pipBoy3000" src="Graphics/Other/pipBoy3000.png" alt="PIPBOY">
+		</div>
+		
+		<div id="yourDadEscapedBody" class="levelBody">
+            <div class="afterXYears">Nine Years Later</div>
+            <img id="pickUpItemYourDadEscapedBBGun" class="pickUpItem" title="BB Gun" src="Graphics/Pick Up Items/BB Gun.png" alt="x">
+            <img id="pickUpItemYourDadEscapedBaseBallBat" class="pickUpItem" title="Baseball bat"  src="Graphics/Pick Up Items/Baseball bat.png" alt="x">
+            <img id="objectPointingArrowYourDadEscapedToBBGun" class="pointerCursor objectPointingArrow" src="Graphics/Other/objectPointingArrow.png" alt="x">
+            <img id="objectPointingArrowYourDadEscapedToBaseBallBat" class="pointerCursor objectPointingArrow" src="Graphics/Other/objectPointingArrow.png" alt="x">
+            <img id="objectPointingArrowYourDadEscapedOutOfTheRoom" class="pointerCursor objectPointingArrow" src="Graphics/Other/objectPointingArrow.png" alt="x">
+			<img id="objectPointingArrowYourDadEscapedGoBackToSleep" class="pointerCursor objectPointingArrow" src="Graphics/Other/objectPointingArrow.png" alt="x">
+        </div>
+		
+		<div id="escapeTheVaultBody" class="levelBody">
+            <img id="objectPointingArrowEscapeTheVaultToUnderTheOverseerOffice" class="pointerCursor objectPointingArrow" src="objectPointingArrow.png" alt="x">
+			<div class="selectionArea" id="escapeTheVaultToUnderTheOverseerOfficeDoorSelectArea"></div>
+			<img id="Radroach" class="attackableEnemy" src="Radroach.png" alt="Radroach">
+			<div class="selectionArea" id="vaultExitRoomDoorSwitchSelectArea"></div>
+			<div class="selectionArea" id="vaultDoorControlPanelSwitchSelectArea"></div>
+			<img id="objectPointingArrowEscapeTheVaultInVaultExitTunnelToOutside" class="pointerCursor objectPointingArrow" src="objectPointingArrow.png" alt="x">
+        </div>
+		
+		<div id="outOfTheVaultBody"  class="levelBody">
+			<img id="objectPointingArrowOutOfTheVaultBodyToVault112" class="pointerCursor objectPointingArrow" src="objectPointingArrow.png" title="Go to vault 112" alt="x">
+			<img id="objectPointingArrowOutOfTheVaultBodyToDangerousWasteland" class="pointerCursor objectPointingArrow" src="objectPointingArrow.png" title="Explore the dangerous waste land" alt="x">
+		</div>
+		
+		<div id="youFoundYourDadVault112Body" class="levelBody">
+			
+		</div>
+		
+		<div id="meetDeathClawYouFuckedUpBody" class="levelBody">
+			
+		</div>
+		
 		
 		
 		
@@ -51,10 +122,10 @@
         <p id="talkerName"></p>
         <img id="objectPointingArrowGoBack" class="pointerCursor objectPointingArrow" src="Graphics/Other/objectPointingArrow.png" alt="x">
 		<div id="infoBoxTopLeft">
-            <div id="infoBoxTopLeftGeneral"></div>
-            <div id="infoBoxTopLeftDivider"></div>
-            <div id="infoBoxTopLeftSpecific">Take the Pip-Boy 3000 from the overseer</div>
-        </div>
+			<div id="infoBoxTopLeftGeneral">You can click on specific objects to activate them</div>
+			<div id="infoBoxTopLeftDivider"></div>
+			<div id="infoBoxTopLeftSpecific">Click on the door of the playpen to get out of it</div>
+		</div>
 		<div id="youWon">You Won</div>
 		<div id="youDied">You died. Game over</div>
         <img id="inventoryButton" class="pointerCursor" src="Graphics/Other/inventoryIcon.png" alt="x">
