@@ -1,0 +1,12 @@
+hideOpacityDisplay(pleasStandByVideo);
+	hideOpacityDisplay(startMenuBody);
+	hideOpacityDisplay(startGameIntroBody);
+	hideOpacityDisplay(storyExplanationBody);
+	hideOpacityDisplay(justBornBody);
+	hideOpacityDisplay(babyStepsBody);
+	hideOpacityDisplay(happy10thBirthdayBody);
+	hideOpacityDisplay(yourDadEscapedBody);
+	hideOpacityDisplay(escapeTheVaultBody);
+	hideOpacityDisplay(outOfTheVaultBody);
+	hideOpacityDisplay(youFoundYourDadVault112Body);
+	hideOpacityDisplay(meetDeathClawYouFuckedUpBody);
